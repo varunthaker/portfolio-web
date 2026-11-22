@@ -21,18 +21,18 @@ export const profile: Profile = {
     de: 'Product Engineer · Full-Stack & AI',
   },
   pitch: {
-    en: 'I turn business processes into software — from Go backends to AI agents.',
-    de: 'Ich übersetze Geschäftsprozesse in Software — vom Go-Backend bis zum AI-Agent.',
+    en: 'I turn business processes into software — from first idea to production, with AI built in.',
+    de: 'Ich übersetze Geschäftsprozesse in Software — von der ersten Idee bis zur Produktion, mit KI als festem Bestandteil.',
   },
   summary: {
     en: 'Full-stack engineer with 3+ years in Go, Python and React/TypeScript. I build production web apps end to end and integrate AI directly into the product — with an industrial engineer’s eye for the process behind it.',
     de: 'Full-Stack-Engineer mit über drei Jahren Erfahrung in Go, Python und React/TypeScript. Ich entwickle produktive Webanwendungen von Ende zu Ende und integriere KI direkt ins Produkt — mit dem Blick eines Wirtschaftsingenieurs für den Prozess dahinter.',
   },
-  stackLine: 'Go · Python · React/TypeScript · PostgreSQL · AI Agents · MCP',
+  stackLine: 'MCP · AI Agents · RAG · React/TypeScript · Python · Go · PostgreSQL',
   emailParts: ['vthakar3', 'gmail.com'],
   linkedin: 'https://www.linkedin.com/in/varun-thaker-0369/',
   github: 'https://github.com/varunthaker',
-  location: { en: 'Magdeburg, Germany', de: 'Magdeburg, Deutschland' },
+  location: { en: 'Germany', de: 'Deutschland' },
   cv: {
     de: '/cv/Lebenslauf_Varun_Thaker.pdf',
     en: '/cv/Varun_Thaker_CV_EN.pdf',
