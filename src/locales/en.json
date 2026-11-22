@@ -74,5 +74,9 @@
   },
   "footer": {
     "built": "Built with React, Motion & Tailwind CSS."
+  },
+  "carousel": {
+    "prev": "Previous",
+    "next": "Next"
   }
 }

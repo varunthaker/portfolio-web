@@ -6,19 +6,16 @@ import { ProjectVisual } from './ProjectVisual'
 
 type Props = {
   project: Project
-  featured?: boolean
   onOpen: (project: Project) => void
 }
 
-export function ProjectCard({ project, featured = false, onOpen }: Props) {
+export function ProjectCard({ project, onOpen }: Props) {
   const { t } = useTranslation()
   const { t: tl } = useLang()
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-cyan/50 ${
-        featured ? 'md:col-span-2' : ''
-      }`}
+      className="group relative flex w-[80vw] max-w-[360px] flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-cyan/50"
     >
       <div className="h-44 border-b border-border bg-bg/60 p-4">
         <ProjectVisual kind={project.visual} />

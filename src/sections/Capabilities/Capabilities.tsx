@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Carousel } from '../../components/ui/Carousel'
 import { Tag } from '../../components/ui/Tag'
 import { capabilities, type Capability, type CapabilityId } from '../../content/capabilities'
 import { useLang } from '../../hooks/useLang'
@@ -47,9 +48,9 @@ function CapabilityCard({ cap, animate, count, selected, onToggle }: CardProps) 
   return (
     <article
       ref={ref}
-      className={`group relative rounded-2xl border bg-card p-6 transition-colors sm:p-8 ${
+      className={`group relative flex flex-col rounded-2xl border bg-card p-6 transition-colors sm:p-8 ${
         selected ? 'border-cyan shadow-[0_0_0_1px_var(--cyan)]' : 'border-border hover:border-cyan/50'
-      } ${isMcp ? 'md:col-span-3' : ''} ${loopClass}`}
+      } ${isMcp ? 'w-[88vw] max-w-[780px]' : 'w-[80vw] max-w-[360px]'} ${loopClass}`}
     >
       {isMcp ? (
         <>
@@ -68,7 +69,7 @@ function CapabilityCard({ cap, animate, count, selected, onToggle }: CardProps) 
           <p className="mt-2 text-sm leading-relaxed text-muted">{t(cap.body)}</p>
         </>
       )}
-      <div className="mt-5 flex flex-wrap items-center gap-1.5">
+      <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-5">
         {cap.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
         ))}
@@ -91,11 +92,13 @@ type Props = {
 /** Capability cards that double as filters for the project grid below. */
 export function Capabilities({ selected, counts, onToggle }: Props) {
   const animate = !useReducedMotionSafe()
-  // MCP gets the wide slot after the three regular cards.
-  const ordered = [...capabilities.filter((c) => c.id !== 'mcp'), ...capabilities.filter((c) => c.id === 'mcp')]
+  const { t } = useTranslation()
+  // AI-first: MCP (wide diagram card) leads, full-stack closes.
+  const ORDER: CapabilityId[] = ['mcp', 'agents', 'rag-voice', 'fullstack']
+  const ordered = ORDER.map((id) => capabilities.find((c) => c.id === id)!)
 
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <Carousel label={t('build.heading')}>
       {ordered.map((cap) => (
         <CapabilityCard
           key={cap.id}
@@ -106,6 +109,6 @@ export function Capabilities({ selected, counts, onToggle }: Props) {
           onToggle={onToggle}
         />
       ))}
-    </div>
+    </Carousel>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Carousel } from '../../components/ui/Carousel'
 import { capabilities, type CapabilityId } from '../../content/capabilities'
 import type { Project } from '../../content/projects'
 import { useLang } from '../../hooks/useLang'
@@ -33,10 +34,12 @@ export function Projects({ projects, filter, onClearFilter }: Props) {
           </button>
         )}
       </div>
-      <div ref={ref} className={`grid gap-5 md:grid-cols-2 lg:grid-cols-3 ${loopClass}`}>
-        {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} featured={!active && i === 0} onOpen={setOpen} />
-        ))}
+      <div ref={ref} className={loopClass}>
+        <Carousel label={active ? t('projects.headingFor', { name: tl(active.title) }) : t('projects.headingAll')} resetKey={filter ?? 'all'}>
+          {projects.map((p) => (
+            <ProjectCard key={p.id} project={p} onOpen={setOpen} />
+          ))}
+        </Carousel>
       </div>
       <ProjectDialog project={open} onClose={() => setOpen(null)} />
     </div>
