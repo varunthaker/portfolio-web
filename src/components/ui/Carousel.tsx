@@ -28,7 +28,9 @@ export function Carousel({ label, children, resetKey }: Props) {
     cards.forEach((c, i) => {
       if (Math.abs(c.offsetLeft - el.offsetLeft - left) < Math.abs(cards[nearest].offsetLeft - el.offsetLeft - left)) nearest = i
     })
-    const atEnd = left + el.clientWidth >= el.scrollWidth - 4
+    // the trailing padding counts as "end", so → never just nudges the row a few px
+    const pad = parseFloat(getComputedStyle(el).paddingRight) || 0
+    const atEnd = left + el.clientWidth >= el.scrollWidth - pad - 4
     setIndex(atEnd ? cards.length - 1 : nearest)
     setEdges({ start: left <= 4, end: atEnd })
   }, [])
@@ -46,10 +48,22 @@ export function Carousel({ label, children, resetKey }: Props) {
     track.current?.scrollTo({ left: 0 })
   }, [resetKey])
 
-  const goTo = (i: number) => {
+  /**
+   * Scroll to the previous/next card relative to the *current scroll position*.
+   * (Index-based jumps break at the end of the row, where several cards are
+   * visible at once and the "previous" card's offset is already in view.)
+   */
+  const step = (dir: -1 | 1) => {
     const el = track.current
-    const card = el?.children[i] as HTMLElement | undefined
-    if (el && card) el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: 'smooth' })
+    if (!el) return
+    const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0
+    const offsets = (Array.from(el.children) as HTMLElement[]).map((c) => c.offsetLeft - el.offsetLeft - pad)
+    const left = el.scrollLeft
+    const target =
+      dir === 1
+        ? offsets.find((o) => o > left + 4)
+        : [...offsets].reverse().find((o) => o < left - 4)
+    el.scrollTo({ left: Math.max(0, target ?? (dir === 1 ? el.scrollWidth : 0)), behavior: 'smooth' })
   }
 
   const btn =
@@ -89,10 +103,10 @@ export function Carousel({ label, children, resetKey }: Props) {
             ))}
           </div>
           <div className="flex gap-2">
-            <button type="button" className={btn} onClick={() => goTo(Math.max(0, index - 1))} disabled={edges.start} aria-label={t('carousel.prev')}>
+            <button type="button" className={btn} onClick={() => step(-1)} disabled={edges.start} aria-label={t('carousel.prev')}>
               ←
             </button>
-            <button type="button" className={btn} onClick={() => goTo(Math.min(items.length - 1, index + 1))} disabled={edges.end} aria-label={t('carousel.next')}>
+            <button type="button" className={btn} onClick={() => step(1)} disabled={edges.end} aria-label={t('carousel.next')}>
               →
             </button>
           </div>
