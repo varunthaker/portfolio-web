@@ -85,8 +85,8 @@ type Props = {
 export function Capabilities({ selected, counts, onToggle }: Props) {
   const animate = !useReducedMotionSafe()
   const { t } = useTranslation()
-  // AI-first: MCP leads, full-stack closes.
-  const ORDER: CapabilityId[] = ['mcp', 'agents', 'rag-voice', 'fullstack']
+  // Full-stack first, then the AI capabilities.
+  const ORDER: CapabilityId[] = ['fullstack', 'agents', 'mcp', 'rag-voice']
   const ordered = ORDER.map((id) => capabilities.find((c) => c.id === id)!)
 
   return (

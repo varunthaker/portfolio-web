@@ -1,6 +1,6 @@
 const LAYERS = [
   { y: 18, label: 'React · TypeScript', color: 'var(--cyan)' },
-  { y: 72, label: 'Go · Python API', color: 'var(--violet)' },
+  { y: 72, label: 'Python · Go API', color: 'var(--violet)' },
   { y: 126, label: 'PostgreSQL', color: 'var(--amber)' },
 ] as const
 

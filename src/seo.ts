@@ -7,16 +7,16 @@ export type SeoEntry = { title: string; description: string; ogImage: string; lo
 
 export const seo: Record<Lang, SeoEntry> = {
   en: {
-    title: 'Varun Thaker — Full-Stack & AI Product Engineer',
+    title: 'Varun Thaker — Full-Stack & AI Engineer',
     description:
-      'From industrial engineering to software: I build full-stack products with Go, Python and React, and bring AI agents, RAG and MCP into real applications.',
+      'From industrial engineering to software: I build full-stack products with Python, React and Go, and bring AI agents, RAG and MCP into real applications.',
     ogImage: '/og-en.png',
     locale: 'en_US',
   },
   de: {
-    title: 'Varun Thaker — Full-Stack- & AI-Product-Engineer',
+    title: 'Varun Thaker — Full-Stack- & AI-Engineer',
     description:
-      'Vom Wirtschaftsingenieurwesen zur Software: Ich entwickle Full-Stack-Produkte mit Go, Python und React und bringe AI-Agents, RAG und MCP in echte Anwendungen.',
+      'Vom Wirtschaftsingenieurwesen zur Software: Ich entwickle Full-Stack-Produkte mit Python, React und Go und bringe AI-Agents, RAG und MCP in echte Anwendungen.',
     ogImage: '/og-de.png',
     locale: 'de_DE',
   },

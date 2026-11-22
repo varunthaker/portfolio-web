@@ -8,22 +8,22 @@ export type SkillGroup = {
   more: string[]
 }
 
-// AI first, matching the rest of the site.
+// Full-stack first (Python and React are the strongest, Go since ~1 year), then AI.
 export const skills: SkillGroup[] = [
   {
-    group: { en: 'AI & LLM', de: 'AI & LLM' },
-    core: ['MCP', 'AI agents', 'RAG', 'LLM evaluation'],
-    more: ['Tool calling', 'LangChain', 'Agno', 'Langfuse', 'OpenAI / Gemini / Anthropic APIs', 'pgvector'],
-  },
-  {
     group: { en: 'Backend & Data', de: 'Backend & Daten' },
-    core: ['Go', 'Python', 'FastAPI', 'PostgreSQL'],
+    core: ['Python', 'FastAPI', 'Go', 'PostgreSQL'],
     more: ['Gin', 'Django', 'Node.js', 'MySQL', 'MongoDB', 'Supabase', 'Domain-Driven Design', 'REST APIs'],
   },
   {
     group: { en: 'Frontend', de: 'Frontend' },
     core: ['React', 'TypeScript', 'Tailwind CSS'],
     more: ['JavaScript', 'Redux', 'Zustand', 'Material UI', 'Fluent UI'],
+  },
+  {
+    group: { en: 'AI & LLM', de: 'AI & LLM' },
+    core: ['MCP', 'AI agents', 'RAG', 'LLM evaluation'],
+    more: ['Tool calling', 'LangChain', 'Agno', 'Langfuse', 'OpenAI / Gemini / Anthropic APIs', 'pgvector'],
   },
   {
     group: { en: 'Cloud, DevOps & Auth', de: 'Cloud, DevOps & Auth' },

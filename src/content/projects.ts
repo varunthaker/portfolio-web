@@ -18,85 +18,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'mcp-agents',
-    visual: 'mcp',
-    capabilities: ['mcp', 'agents'],
-    title: { en: 'MCP Servers & AI Agents', de: 'MCP-Server & AI-Agents' },
-    tagline: { en: 'Professional work', de: 'Beruflich' },
-    summary: {
-      en: 'MCP servers and tool-calling agents that give AI structured, permission-scoped access to a business-process platform.',
-      de: 'MCP-Server und Tool-Calling-Agents, die KI strukturierten Zugriff mit klaren Berechtigungen auf eine Plattform für Geschäftsprozesse geben.',
-    },
-    bullets: [
-      {
-        en: 'MCP servers expose platform data and actions as tools, usable from any MCP client.',
-        de: 'MCP-Server stellen Plattformdaten und -aktionen als Tools bereit — nutzbar von jedem MCP-Client.',
-      },
-      {
-        en: 'Agents read business-process context and generate process descriptions and improvement suggestions.',
-        de: 'Agents werten den Kontext von Geschäftsprozessen aus und erstellen Prozessbeschreibungen und Verbesserungsvorschläge.',
-      },
-      {
-        en: 'Multi-provider model selection (OpenAI, Gemini, Anthropic) plus an evaluation setup — LLM-as-a-judge and Langfuse — to pick the right model per agent.',
-        de: 'Multi-Provider-Model-Selection (OpenAI, Gemini, Anthropic) plus Evaluation-Setup — LLM-as-a-Judge und Langfuse — um pro Agent das passende Modell zu wählen.',
-      },
-    ],
-    stack: ['MCP', 'Python', 'Agno', 'Go', 'OAuth', 'Langfuse'],
-  },
-  {
-    id: 'voice-agent',
-    visual: 'waveform',
-    capabilities: ['rag-voice', 'agents'],
-    title: { en: 'Voice Agent with RAG', de: 'Voice Agent mit RAG' },
-    tagline: { en: 'Side project', de: 'Eigenes Projekt' },
-    summary: {
-      en: 'A voice agent that answers customers’ spoken questions in German — using only the documents a business uploads.',
-      de: 'Ein Voice Agent, der gesprochene Kundenfragen auf Deutsch beantwortet — ausschließlich auf Basis der Dokumente, die ein Unternehmen hochlädt.',
-    },
-    bullets: [
-      {
-        en: 'Real-time pipeline: browser microphone → speech-to-text → document search → LLM → text-to-speech.',
-        de: 'Echtzeit-Pipeline: Browser-Mikrofon → Speech-to-Text → Dokumentensuche → LLM → Text-to-Speech.',
-      },
-      {
-        en: 'Answers grounded in uploaded documents (e.g. property exposés), so it doesn’t invent facts.',
-        de: 'Antworten basieren auf hochgeladenen Dokumenten (z. B. Immobilien-Exposés) — keine erfundenen Fakten.',
-      },
-      {
-        en: 'Built for German from end to end: German speech recognition, retrieval and voice.',
-        de: 'Durchgängig für Deutsch gebaut: deutsche Spracherkennung, Suche und Stimme.',
-      },
-    ],
-    stack: ['Python', 'Deepgram', 'OpenAI', 'ElevenLabs', 'RAG'],
-  },
-  {
-    id: 'warehouse-assistant',
-    visual: 'agent',
-    capabilities: ['agents', 'mcp', 'rag-voice', 'fullstack'],
-    title: { en: 'AI Warehouse Inventory Assistant', de: 'AI Warehouse Inventory Assistant' },
-    tagline: { en: 'AI agent with RAG & MCP', de: 'AI-Agent mit RAG & MCP' },
-    summary: {
-      en: 'An agent that answers warehouse questions by combining live inventory data with procurement policies from PDFs.',
-      de: 'Ein Agent, der Lagerfragen beantwortet, indem er Live-Bestandsdaten mit Einkaufsrichtlinien aus PDFs kombiniert.',
-    },
-    bullets: [
-      {
-        en: 'RAG pipeline for procurement PDFs: page-based chunking, OpenAI embeddings, pgvector similarity search — answers cite the page.',
-        de: 'RAG-Pipeline für Einkaufsrichtlinien: seitenbasiertes Chunking, OpenAI-Embeddings, pgvector-Suche — Antworten mit Seitenangabe.',
-      },
-      {
-        en: 'LangChain agent in FastAPI that combines documents with live stock, supplier and purchase-order data.',
-        de: 'LangChain-Agent in FastAPI, der Dokumente mit Live-Daten zu Bestand, Lieferanten und Bestellungen kombiniert.',
-      },
-      {
-        en: 'Tools exposed as an MCP server, so any MCP client can use them.',
-        de: 'Tools als MCP-Server bereitgestellt — nutzbar von jedem MCP-Client.',
-      },
-    ],
-    stack: ['Python', 'FastAPI', 'LangChain', 'MCP', 'Supabase', 'pgvector'],
-    link: { kind: 'demo', href: 'https://www.loom.com/share/f21d63f48e354b8381520db4b74bc8c7' },
-  },
-  {
     id: 'event-registration',
     visual: 'payments',
     capabilities: ['fullstack'],
@@ -173,5 +94,84 @@ export const projects: Project[] = [
       },
     ],
     stack: ['React', 'TypeScript', 'PostgreSQL', 'Auth'],
+  },
+  {
+    id: 'mcp-agents',
+    visual: 'mcp',
+    capabilities: ['mcp', 'agents'],
+    title: { en: 'MCP Servers & AI Agents', de: 'MCP-Server & AI-Agents' },
+    tagline: { en: 'Professional work', de: 'Beruflich' },
+    summary: {
+      en: 'MCP servers and tool-calling agents that give AI structured, permission-scoped access to a business-process platform.',
+      de: 'MCP-Server und Tool-Calling-Agents, die KI strukturierten Zugriff mit klaren Berechtigungen auf eine Plattform für Geschäftsprozesse geben.',
+    },
+    bullets: [
+      {
+        en: 'MCP servers expose platform data and actions as tools, usable from any MCP client.',
+        de: 'MCP-Server stellen Plattformdaten und -aktionen als Tools bereit — nutzbar von jedem MCP-Client.',
+      },
+      {
+        en: 'Agents read business-process context and generate process descriptions and improvement suggestions.',
+        de: 'Agents werten den Kontext von Geschäftsprozessen aus und erstellen Prozessbeschreibungen und Verbesserungsvorschläge.',
+      },
+      {
+        en: 'Multi-provider model selection (OpenAI, Gemini, Anthropic) plus an evaluation setup — LLM-as-a-judge and Langfuse — to pick the right model per agent.',
+        de: 'Multi-Provider-Model-Selection (OpenAI, Gemini, Anthropic) plus Evaluation-Setup — LLM-as-a-Judge und Langfuse — um pro Agent das passende Modell zu wählen.',
+      },
+    ],
+    stack: ['MCP', 'Python', 'Agno', 'Go', 'OAuth', 'Langfuse'],
+  },
+  {
+    id: 'warehouse-assistant',
+    visual: 'agent',
+    capabilities: ['agents', 'mcp', 'rag-voice', 'fullstack'],
+    title: { en: 'AI Warehouse Inventory Assistant', de: 'AI Warehouse Inventory Assistant' },
+    tagline: { en: 'AI agent with RAG & MCP', de: 'AI-Agent mit RAG & MCP' },
+    summary: {
+      en: 'An agent that answers warehouse questions by combining live inventory data with procurement policies from PDFs.',
+      de: 'Ein Agent, der Lagerfragen beantwortet, indem er Live-Bestandsdaten mit Einkaufsrichtlinien aus PDFs kombiniert.',
+    },
+    bullets: [
+      {
+        en: 'RAG pipeline for procurement PDFs: page-based chunking, OpenAI embeddings, pgvector similarity search — answers cite the page.',
+        de: 'RAG-Pipeline für Einkaufsrichtlinien: seitenbasiertes Chunking, OpenAI-Embeddings, pgvector-Suche — Antworten mit Seitenangabe.',
+      },
+      {
+        en: 'LangChain agent in FastAPI that combines documents with live stock, supplier and purchase-order data.',
+        de: 'LangChain-Agent in FastAPI, der Dokumente mit Live-Daten zu Bestand, Lieferanten und Bestellungen kombiniert.',
+      },
+      {
+        en: 'Tools exposed as an MCP server, so any MCP client can use them.',
+        de: 'Tools als MCP-Server bereitgestellt — nutzbar von jedem MCP-Client.',
+      },
+    ],
+    stack: ['Python', 'FastAPI', 'LangChain', 'MCP', 'Supabase', 'pgvector'],
+    link: { kind: 'demo', href: 'https://www.loom.com/share/f21d63f48e354b8381520db4b74bc8c7' },
+  },
+  {
+    id: 'voice-agent',
+    visual: 'waveform',
+    capabilities: ['rag-voice', 'agents'],
+    title: { en: 'Voice Agent with RAG', de: 'Voice Agent mit RAG' },
+    tagline: { en: 'Side project', de: 'Eigenes Projekt' },
+    summary: {
+      en: 'A voice agent that answers customers’ spoken questions in German — using only the documents a business uploads.',
+      de: 'Ein Voice Agent, der gesprochene Kundenfragen auf Deutsch beantwortet — ausschließlich auf Basis der Dokumente, die ein Unternehmen hochlädt.',
+    },
+    bullets: [
+      {
+        en: 'Real-time pipeline: browser microphone → speech-to-text → document search → LLM → text-to-speech.',
+        de: 'Echtzeit-Pipeline: Browser-Mikrofon → Speech-to-Text → Dokumentensuche → LLM → Text-to-Speech.',
+      },
+      {
+        en: 'Answers grounded in uploaded documents (e.g. property exposés), so it doesn’t invent facts.',
+        de: 'Antworten basieren auf hochgeladenen Dokumenten (z. B. Immobilien-Exposés) — keine erfundenen Fakten.',
+      },
+      {
+        en: 'Built for German from end to end: German speech recognition, retrieval and voice.',
+        de: 'Durchgängig für Deutsch gebaut: deutsche Spracherkennung, Suche und Stimme.',
+      },
+    ],
+    stack: ['Python', 'Deepgram', 'OpenAI', 'ElevenLabs', 'RAG'],
   },
 ]

@@ -14,10 +14,10 @@ export const capabilities: Capability[] = [
     id: 'fullstack',
     title: { en: 'Full-stack web apps', de: 'Full-Stack-Webanwendungen' },
     body: {
-      en: 'Production apps from schema to screen: Go and Python APIs, PostgreSQL, React/TypeScript frontends, auth and payments, deployed with Docker and Kubernetes.',
-      de: 'Produktive Apps vom Schema bis zum Screen: Go- und Python-APIs, PostgreSQL, React/TypeScript-Frontends, Auth und Payments, deployt mit Docker und Kubernetes.',
+      en: 'Production apps from schema to screen: Python and Go APIs, PostgreSQL, React/TypeScript frontends, auth and payments, deployed with Docker and Kubernetes.',
+      de: 'Produktive Apps vom Schema bis zum Screen: Python- und Go-APIs, PostgreSQL, React/TypeScript-Frontends, Auth und Payments, deployt mit Docker und Kubernetes.',
     },
-    tags: ['Go', 'Python', 'React', 'PostgreSQL'],
+    tags: ['Python', 'React', 'Go', 'PostgreSQL'],
   },
   {
     id: 'agents',
