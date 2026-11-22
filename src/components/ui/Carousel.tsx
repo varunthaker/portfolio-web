@@ -64,9 +64,11 @@ export function Carousel({ label, children, resetKey }: Props) {
     if (dir === -1 && left <= 4) return el.scrollTo({ left: max, behavior: 'smooth' })
     if (dir === 1 && left >= max - (parseFloat(getComputedStyle(el).paddingRight) || 0) - 4)
       return el.scrollTo({ left: 0, behavior: 'smooth' })
-    // At the very end the row rests past the last card's snap point (trailing padding);
-    // measure from that snap point so ← moves a whole card, not a few pixels.
-    const from = dir === -1 && left >= max - 4 ? Math.max(...offsets.filter((o) => o <= max + 4)) : left
+    // "Current" card = the first one whose left edge is in view (± the side padding).
+    // Measuring from it keeps steps whole-card even at the end of the row, where the
+    // scroll position doesn't sit exactly on a snap point.
+    const current = offsets.find((o) => o >= left - pad - 4) ?? offsets[offsets.length - 1]
+    const from = current
     const target =
       dir === 1
         ? offsets.find((o) => o > from + 4)
