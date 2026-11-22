@@ -20,7 +20,7 @@ export function ProjectCard({ project, featured = false, onOpen }: Props) {
         featured ? 'md:col-span-2' : ''
       }`}
     >
-      <div className={`border-b border-border bg-bg/60 p-4 ${featured ? 'aspect-[2.4/1]' : 'aspect-[2/1]'}`}>
+      <div className="h-44 border-b border-border bg-bg/60 p-4">
         <ProjectVisual kind={project.visual} />
       </div>
       <div className="flex flex-1 flex-col p-6">

@@ -18,7 +18,7 @@ export function ChapterCard({ chapter, index, active }: Props) {
   return (
     <article
       aria-current={active ? 'step' : undefined}
-      className={`rounded-2xl border bg-card/85 p-6 backdrop-blur-sm transition-all duration-500 sm:p-8 ${
+      className={`w-full min-w-0 rounded-2xl border bg-card/85 p-6 backdrop-blur-sm transition-all duration-500 sm:p-8 ${
         active ? `${ring} opacity-100 shadow-xl shadow-black/10` : 'border-border opacity-45'
       }`}
     >
@@ -28,7 +28,7 @@ export function ChapterCard({ chapter, index, active }: Props) {
         </span>{' '}
         · {period}
       </p>
-      <h3 className="mt-3 text-2xl font-semibold sm:text-3xl">{tl(chapter.title)}</h3>
+      <h3 className="mt-3 text-2xl font-semibold break-words hyphens-auto sm:text-3xl">{tl(chapter.title)}</h3>
       <p className="mt-1 text-sm text-muted">{tl(chapter.place)}</p>
       <p className="mt-4 leading-relaxed text-fg/90">{tl(chapter.body)}</p>
     </article>

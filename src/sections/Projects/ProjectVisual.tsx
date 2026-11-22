@@ -21,8 +21,6 @@ export function ProjectVisual({ kind }: { kind: ProjectVisualKind }) {
       )}
       {kind === 'agent' && (
         <g>
-          <circle cx="160" cy="80" r="26" fill="var(--bg-elev)" stroke="var(--violet)" strokeWidth="2" />
-          <text x="160" y="85" textAnchor="middle" fontFamily={MONO} fontSize="12" fill="var(--fg)">agent</text>
           {[
             { x: 50, y: 40, l: 'stock' },
             { x: 50, y: 120, l: 'suppliers' },
@@ -35,6 +33,8 @@ export function ProjectVisual({ kind }: { kind: ProjectVisualKind }) {
               <text x={n.x} y={n.y + 4} textAnchor="middle" fontFamily={MONO} fontSize="10" fill="var(--fg)">{n.l}</text>
             </g>
           ))}
+          <circle cx="160" cy="80" r="26" fill="var(--bg-elev)" stroke="var(--violet)" strokeWidth="2" />
+          <text x="160" y="85" textAnchor="middle" fontFamily={MONO} fontSize="12" fill="var(--fg)">agent</text>
         </g>
       )}
       {kind === 'payments' && (

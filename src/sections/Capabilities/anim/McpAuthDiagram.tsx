@@ -92,8 +92,8 @@ export function McpAuthDiagram({ animate }: { animate: boolean }) {
         </g>
         <g fontFamily={MONO} fontSize="11" fill="var(--muted)">
           <text x="210" y="140" textAnchor="middle">1</text>
-          <text x="448" y="84" textAnchor="middle">2 · OAuth</text>
-          <text x="448" y="226" textAnchor="middle">3 · tools</text>
+          <text x="430" y="80" textAnchor="middle">2 · OAuth</text>
+          <text x="430" y="230" textAnchor="middle">3 · tools</text>
         </g>
 
         <Box b={CLIENT} title={t('mcp.client')} sub={t('mcp.clientSub')} stroke="var(--cyan)" />

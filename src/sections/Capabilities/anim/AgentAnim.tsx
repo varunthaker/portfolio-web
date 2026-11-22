@@ -11,8 +11,8 @@ export function AgentAnim({ animate }: { animate: boolean }) {
     <svg viewBox="0 0 320 180" className="h-full w-full" aria-hidden="true">
       {TOOLS.map((tool, i) => {
         const path = `M84 90C150 90 150 ${tool.y} 196 ${tool.y}`
-        const start = i / TOOLS.length
-        const end = start + 0.22
+        const start = i * 0.28
+        const end = start + 0.18 // last tool: highlight ends at 0.86 < 1
         return (
           <g key={tool.label}>
             <path d={path} fill="none" stroke="var(--border)" strokeWidth="2" />

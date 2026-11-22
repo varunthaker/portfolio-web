@@ -327,7 +327,7 @@ export function FactoryScene({ progress, animate = true, className = '' }: Scene
 
       {/* ---- Chapter 4: VBA macro (first code) ---- */}
       <motion.g style={{ opacity: code }}>
-        <rect x="40" y="52" width="300" height="104" rx="10" fill="var(--scene-bg)" stroke={VIOLET} strokeWidth="1.5" />
+        <rect x="36" y="52" width="222" height="104" rx="10" fill="var(--scene-bg)" stroke={VIOLET} strokeWidth="1.5" />
         {['Sub BuildReport()', '  For Each row In Data', '    Report.Add row', 'End Sub'].map((line, i) => (
           <CodeLine key={i} progress={progress} index={i} text={line} uid={uid} />
         ))}
