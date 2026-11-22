@@ -1,7 +1,6 @@
 import type { Localized } from './types'
 
-/** What the journey robot carries at this chapter's station. */
-export type RobotItem = 'blueprint' | 'flow' | 'sheet' | 'macro' | 'laptop' | 'server' | 'mcp'
+export type SceneState = 'process' | 'kpis' | 'cells' | 'vba' | 'dissolve' | 'services' | 'agents'
 
 export type Chapter = {
   id: string
@@ -10,14 +9,14 @@ export type Chapter = {
   title: Localized
   place: Localized
   body: Localized
-  item: RobotItem
+  scene: SceneState
 }
 
 export const journey: Chapter[] = [
   {
     id: 'mechanical',
     period: '2012 – 2016',
-    item: 'blueprint',
+    scene: 'process',
     title: { en: 'Mechanical Engineering', de: 'Maschinenbau' },
     place: { en: 'B.Tech · University of Mumbai, India', de: 'B.Tech · University of Mumbai, Indien' },
     body: {
@@ -28,7 +27,7 @@ export const journey: Chapter[] = [
   {
     id: 'industrial',
     period: '2019 – 2022',
-    item: 'flow',
+    scene: 'kpis',
     title: { en: 'Industrial Engineering', de: 'Wirtschaftsingenieurwesen' },
     place: { en: 'Technische Universität Berlin', de: 'Technische Universität Berlin' },
     body: {
@@ -39,7 +38,7 @@ export const journey: Chapter[] = [
   {
     id: 'supply-chain',
     period: '2021',
-    item: 'sheet',
+    scene: 'cells',
     title: { en: 'Supply Chain, in spreadsheets', de: 'Supply Chain, in Tabellen' },
     place: {
       en: 'Working student · Deutsche Energie System GmbH',
@@ -53,7 +52,7 @@ export const journey: Chapter[] = [
   {
     id: 'reporting',
     period: '2022 – 2023',
-    item: 'macro',
+    scene: 'vba',
     title: { en: 'The first lines of code', de: 'Die ersten Zeilen Code' },
     place: {
       en: 'Working student · STRABAG Property and Facility Services',
@@ -67,21 +66,21 @@ export const journey: Chapter[] = [
   {
     id: 'switch',
     period: '2022 – 2023',
-    item: 'laptop',
+    scene: 'dissolve',
     title: { en: 'Switching tracks', de: 'Der Quereinstieg' },
     place: {
       en: 'Self-study · Spiced Academy Berlin (Full-Stack Web Development)',
       de: 'Selbststudium · Spiced Academy Berlin (Fullstack Web Development)',
     },
     body: {
-      en: 'Evenings with JavaScript, React, design patterns and Git, then an intensive full-stack bootcamp. From spreadsheets to real applications.',
-      de: 'Abende mit JavaScript, React, Design Patterns und Git, danach ein intensives Fullstack-Bootcamp. Von Tabellen zu echten Anwendungen.',
+      en: 'Evenings with JavaScript, React, design patterns and Git, then an intensive full-stack bootcamp. The process diagram comes alive — boxes become services, arrows become APIs.',
+      de: 'Abende mit JavaScript, React, Design Patterns und Git, danach ein intensives Fullstack-Bootcamp. Das Prozessdiagramm wird lebendig — Kästen werden zu Services, Pfeile zu APIs.',
     },
   },
   {
     id: 'aiio-platform',
     period: '2024 – {now}',
-    item: 'server',
+    scene: 'services',
     title: { en: 'Full-Stack Engineer', de: 'Fullstack Engineer' },
     place: { en: 'aiio GmbH · Magdeburg', de: 'aiio GmbH · Magdeburg' },
     body: {
@@ -92,7 +91,7 @@ export const journey: Chapter[] = [
   {
     id: 'aiio-ai',
     period: '2024 – {now}',
-    item: 'mcp',
+    scene: 'agents',
     title: { en: 'AI agents & MCP', de: 'AI-Agents & MCP' },
     place: { en: 'aiio GmbH · Magdeburg', de: 'aiio GmbH · Magdeburg' },
     body: {
