@@ -1,0 +1,71 @@
+{
+  "skip": "Skip to content",
+  "nav": {
+    "journey": "Journey",
+    "build": "What I build",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "theme": { "toLight": "Switch to light theme", "toDark": "Switch to dark theme" },
+  "lang": { "label": "Language", "switchTo": "Deutsch" },
+  "hero": {
+    "eyebrow": "Product Engineer · Full-Stack",
+    "ctaStory": "Read my story",
+    "ctaProjects": "See projects",
+    "photoAlt": "Portrait of Varun Thaker",
+    "scroll": "Scroll"
+  },
+  "journey": {
+    "kicker": "The journey",
+    "heading": "From the factory floor to code",
+    "intro": "Gears, conveyor belts and spreadsheets taught me how processes work. Software let me rebuild them.",
+    "chapter": "Chapter",
+    "now": "today"
+  },
+  "build": {
+    "kicker": "What I build",
+    "heading": "End-to-end, from database to AI agent",
+    "intro": "I like owning the whole path: data model, API, interface — and the AI layer on top."
+  },
+  "mcp": {
+    "client": "MCP Client",
+    "clientSub": "Claude · IDE · App",
+    "server": "MCP Server",
+    "serverSub": "tools · resources",
+    "auth": "Auth",
+    "authSub": "OAuth 2.1 / IdP",
+    "systems": "Business systems",
+    "systemsSub": "APIs · Database · Docs",
+    "step1": "Client connects to the MCP server",
+    "step2": "Server verifies identity via OAuth — scoped token",
+    "step3": "Agent calls tools within its permissions",
+    "step4": "Results flow back to the client",
+    "diagramLabel": "Diagram: an MCP client connects to an MCP server, which authenticates via OAuth and then calls business systems with scoped permissions."
+  },
+  "projects": {
+    "kicker": "Projects",
+    "heading": "Things I've built",
+    "intro": "Production work and side projects — each one built for real people with a real problem.",
+    "details": "Details",
+    "close": "Close",
+    "demo": "Watch demo",
+    "live": "Visit site",
+    "code": "View code",
+    "stack": "Stack"
+  },
+  "skills": {
+    "kicker": "Toolbox",
+    "heading": "What I work with"
+  },
+  "contact": {
+    "kicker": "Contact",
+    "heading": "Let's talk",
+    "body": "Curious about something I built, or want to swap notes on Go, AI agents or MCP? I'm always happy to hear from people.",
+    "email": "Email me",
+    "cv": "Download CV"
+  },
+  "footer": {
+    "built": "Built with React, Motion & Tailwind CSS."
+  }
+}

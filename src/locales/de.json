@@ -1,0 +1,71 @@
+{
+  "skip": "Zum Inhalt springen",
+  "nav": {
+    "journey": "Werdegang",
+    "build": "Was ich baue",
+    "projects": "Projekte",
+    "skills": "Skills",
+    "contact": "Kontakt"
+  },
+  "theme": { "toLight": "Zum hellen Design wechseln", "toDark": "Zum dunklen Design wechseln" },
+  "lang": { "label": "Sprache", "switchTo": "English" },
+  "hero": {
+    "eyebrow": "Product Engineer · Full-Stack",
+    "ctaStory": "Meine Geschichte",
+    "ctaProjects": "Projekte ansehen",
+    "photoAlt": "Porträt von Varun Thaker",
+    "scroll": "Scrollen"
+  },
+  "journey": {
+    "kicker": "Der Werdegang",
+    "heading": "Von der Fabrikhalle zum Code",
+    "intro": "Zahnräder, Förderbänder und Tabellen haben mir gezeigt, wie Prozesse funktionieren. Mit Software baue ich sie neu.",
+    "chapter": "Kapitel",
+    "now": "heute"
+  },
+  "build": {
+    "kicker": "Was ich baue",
+    "heading": "End-to-End, von der Datenbank bis zum AI-Agent",
+    "intro": "Ich verantworte gern den ganzen Weg: Datenmodell, API, Oberfläche — und die AI-Schicht darüber."
+  },
+  "mcp": {
+    "client": "MCP-Client",
+    "clientSub": "Claude · IDE · App",
+    "server": "MCP-Server",
+    "serverSub": "Tools · Ressourcen",
+    "auth": "Auth",
+    "authSub": "OAuth 2.1 / IdP",
+    "systems": "Geschäftssysteme",
+    "systemsSub": "APIs · Datenbank · Dokumente",
+    "step1": "Client verbindet sich mit dem MCP-Server",
+    "step2": "Server prüft die Identität per OAuth — Token mit klaren Rechten",
+    "step3": "Agent ruft Tools im Rahmen seiner Berechtigungen auf",
+    "step4": "Ergebnisse fließen zurück zum Client",
+    "diagramLabel": "Diagramm: Ein MCP-Client verbindet sich mit einem MCP-Server, der sich per OAuth authentifiziert und dann Geschäftssysteme mit begrenzten Rechten aufruft."
+  },
+  "projects": {
+    "kicker": "Projekte",
+    "heading": "Was ich gebaut habe",
+    "intro": "Produktive Arbeit und eigene Projekte — jedes für echte Menschen mit einem echten Problem.",
+    "details": "Details",
+    "close": "Schließen",
+    "demo": "Demo ansehen",
+    "live": "Website besuchen",
+    "code": "Code ansehen",
+    "stack": "Stack"
+  },
+  "skills": {
+    "kicker": "Werkzeugkasten",
+    "heading": "Womit ich arbeite"
+  },
+  "contact": {
+    "kicker": "Kontakt",
+    "heading": "Lass uns sprechen",
+    "body": "Neugierig auf eines meiner Projekte oder Lust auf einen Austausch über Go, AI-Agents oder MCP? Ich freue mich über jede Nachricht.",
+    "email": "E-Mail schreiben",
+    "cv": "Lebenslauf herunterladen"
+  },
+  "footer": {
+    "built": "Gebaut mit React, Motion & Tailwind CSS."
+  }
+}
