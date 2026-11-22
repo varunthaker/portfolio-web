@@ -214,3 +214,14 @@ h3 {
 .anim-step {
   animation: step-hl 8s linear infinite;
 }
+
+/* Robot eyes blink every few seconds */
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+.anim-blink {
+  animation: blink 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}

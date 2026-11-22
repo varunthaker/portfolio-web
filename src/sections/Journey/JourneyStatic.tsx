@@ -1,23 +1,19 @@
-import { useMotionValue } from 'motion/react'
-import { journey } from '../../content/journey'
+import { isSoftwareEra, journey } from '../../content/journey'
 import { ChapterCard } from './ChapterCard'
-import { ProcessScene } from './ProcessScene'
-import { at } from './sceneTimeline'
+import { Robot } from './Robot'
 
-function StaticScene({ chapter }: { chapter: number }) {
-  const progress = useMotionValue(at(chapter))
-  return <ProcessScene progress={progress} animate={false} className="size-full" />
-}
-
-/** Reduced-motion version: a calm, stepped timeline with one still scene per chapter. */
+/** Reduced-motion version: a calm list, the robot shown holding each chapter's item. */
 export function JourneyStatic() {
   return (
     <ol className="mx-auto grid max-w-4xl gap-6 px-4 sm:px-6">
       {journey.map((chapter, i) => (
-        <li key={chapter.id} className="grid items-center gap-4 sm:grid-cols-[180px_1fr]">
-          <div className="mx-auto aspect-square w-40 rounded-2xl border border-border bg-card sm:w-full">
-            <StaticScene chapter={i} />
-          </div>
+        <li key={chapter.id} className="grid items-center gap-4 sm:grid-cols-[120px_1fr]">
+          <Robot
+            item={chapter.item}
+            color={isSoftwareEra(i) ? 'var(--cyan)' : 'var(--amber)'}
+            animate={false}
+            className="mx-auto w-24"
+          />
           <ChapterCard chapter={chapter} index={i} active />
         </li>
       ))}
