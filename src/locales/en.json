@@ -72,8 +72,7 @@
     "kicker": "Contact",
     "heading": "Let's talk",
     "body": "Curious about something I built, or want to swap notes on Go, AI agents or MCP? I'm always happy to hear from people.",
-    "email": "Email me",
-    "cv": "Download CV"
+    "email": "Email me"
   },
   "footer": {
     "built": "Built with React, Motion & Tailwind CSS."

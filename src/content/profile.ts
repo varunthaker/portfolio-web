@@ -1,4 +1,4 @@
-import type { Lang, Localized } from './types'
+import type { Localized } from './types'
 
 export type Profile = {
   name: string
@@ -11,7 +11,6 @@ export type Profile = {
   linkedin: string
   github: string
   location: Localized
-  cv: Record<Lang, string>
 }
 
 export const profile: Profile = {
@@ -33,8 +32,4 @@ export const profile: Profile = {
   linkedin: 'https://www.linkedin.com/in/varun-thaker-0369/',
   github: 'https://github.com/varunthaker',
   location: { en: 'Germany', de: 'Deutschland' },
-  cv: {
-    de: '/cv/Lebenslauf_Varun_Thaker.pdf',
-    en: '/cv/Varun_Thaker_CV_EN.pdf',
-  },
 }

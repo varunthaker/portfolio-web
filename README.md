@@ -17,7 +17,7 @@ npm run lint
 
 | What | File |
 |---|---|
-| Name, pitch, links, CV paths | `src/content/profile.ts` |
+| Name, pitch, links | `src/content/profile.ts` |
 | Journey chapters (the story) | `src/content/journey.ts` |
 | Projects | `src/content/projects.ts` |
 | "What I build" cards | `src/content/capabilities.ts` |
@@ -34,16 +34,9 @@ Every content string is `{ en, de }`, so a missing translation is a type error. 
 
 Replace `src/assets/profile.webp` with a square image (512×512 or larger) and keep the file name. If you change the format, update the import in `src/sections/Hero.tsx`.
 
-## Swap the CVs
-
-- German: `public/cv/Lebenslauf_Varun_Thaker.pdf`
-- English: `public/cv/Varun_Thaker_CV_EN.pdf`
-
-The "Download CV" button serves the file that matches the page language.
-
 ## Copy guard
 
-`npm run guard` (it runs automatically before `build`) fails if the content contains phrases like "open to work", "hire me", "freelance" or the phone number. Edit `scripts/copy-guard.mjs` to change the list.
+`npm run guard` (it runs automatically before `build`) fails if the content contains phrases like "open to work", "hire me", "freelance" the phone number, or company names (aiio, STRABAG, Deutsche Energie System, "GmbH"). Edit `scripts/copy-guard.mjs` to change the list.
 
 ## Deploy (Vercel)
 

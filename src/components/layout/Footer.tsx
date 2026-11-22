@@ -1,10 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { useLang } from '../../hooks/useLang'
 import { profile } from '../../content/profile'
 
 export function Footer() {
   const { t } = useTranslation()
-  const { lang } = useLang()
 
   return (
     <footer className="border-t border-border">
@@ -14,9 +12,6 @@ export function Footer() {
           © {new Date().getFullYear()} {profile.name}. {t('footer.built')}
         </p>
         <div className="flex items-center gap-5">
-          <a href={profile.cv[lang]} download className="hover:text-fg">
-            {t('contact.cv')}
-          </a>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-fg">
             LinkedIn
           </a>

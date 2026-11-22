@@ -1,14 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import { Section } from '../components/ui/Section'
 import { profile } from '../content/profile'
-import { useLang } from '../hooks/useLang'
 
 const linkClass =
   'inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-cyan'
 
 export function Contact() {
   const { t } = useTranslation()
-  const { lang } = useLang()
 
   const openMail = () => {
     const [user, domain] = profile.emailParts
@@ -36,9 +34,6 @@ export function Contact() {
           </a>
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className={linkClass}>
             GitHub ↗
-          </a>
-          <a href={profile.cv[lang]} download className={linkClass}>
-            {t('contact.cv')} ↓
           </a>
         </div>
       </div>

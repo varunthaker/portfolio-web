@@ -127,7 +127,7 @@ export const projects: Project[] = [
     visual: 'dashboard',
     capabilities: ['fullstack'],
     title: { en: 'Customer Dashboard Rebuild', de: 'Customer-Dashboard-Neuaufbau' },
-    tagline: { en: 'aiio GmbH', de: 'aiio GmbH' },
+    tagline: { en: 'Professional work', de: 'Beruflich' },
     summary: {
       en: 'Took ownership of an internal customer dashboard and rebuilt it as a maintainable production codebase.',
       de: 'Verantwortung für ein internes Customer-Dashboard übernommen und es als wartbare Production-Codebase neu aufgebaut.',

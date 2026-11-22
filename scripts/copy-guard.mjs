@@ -2,7 +2,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 
-const FORBIDDEN = /open to work|hire me|freelanc|available for|pricing|my services|meine Leistungen|vibe|01768|Jobsuche|offen für neue|für Projekte verfügbar/i
+const FORBIDDEN = /open to work|hire me|freelanc|available for|pricing|my services|meine Leistungen|vibe|01768|Jobsuche|offen für neue|für Projekte verfügbar|aiio|strabag|deutsche energie|GmbH/i
 const targets = ['src/content', 'src/locales', 'src/seo.ts']
 
 async function files(p) {

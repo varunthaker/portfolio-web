@@ -41,8 +41,8 @@ export const journey: Chapter[] = [
     scene: 'cells',
     title: { en: 'Supply Chain, in spreadsheets', de: 'Supply Chain, in Tabellen' },
     place: {
-      en: 'Working student · Deutsche Energie System GmbH',
-      de: 'Werkstudent · Deutsche Energie System GmbH',
+      en: 'Working student · Energy-systems company',
+      de: 'Werkstudent · Energietechnik-Unternehmen',
     },
     body: {
       en: 'I built an Excel tool for demand-driven material management and KPI tracking. The process became rows, columns and KPIs.',
@@ -55,8 +55,8 @@ export const journey: Chapter[] = [
     scene: 'vba',
     title: { en: 'The first lines of code', de: 'Die ersten Zeilen Code' },
     place: {
-      en: 'Working student · STRABAG Property and Facility Services',
-      de: 'Werkstudent · STRABAG Property and Facility Services',
+      en: 'Working student · Facility-services company',
+      de: 'Werkstudent · Facility-Services-Unternehmen',
     },
     body: {
       en: 'Automating facility-management reports with VBA macros. Watching a manual process run by itself was the moment I knew: I want to build software.',
@@ -78,22 +78,22 @@ export const journey: Chapter[] = [
     },
   },
   {
-    id: 'aiio-platform',
+    id: 'platform',
     period: '2024 – {now}',
     scene: 'services',
     title: { en: 'Full-Stack Engineer', de: 'Fullstack Engineer' },
-    place: { en: 'aiio GmbH · Magdeburg', de: 'aiio GmbH · Magdeburg' },
+    place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
       en: 'Building core business-process domains in Go with Domain-Driven Design, and helping migrate the platform from Django/MySQL to Go/PostgreSQL — faster responses, better concurrency under load.',
       de: 'Entwicklung zentraler Business-Process-Domains in Go nach Domain-Driven Design und Mitwirkung an der Migration von Django/MySQL zu Go/PostgreSQL — kürzere Antwortzeiten, bessere Concurrency unter Last.',
     },
   },
   {
-    id: 'aiio-ai',
+    id: 'ai',
     period: '2024 – {now}',
     scene: 'agents',
     title: { en: 'AI agents & MCP', de: 'AI-Agents & MCP' },
-    place: { en: 'aiio GmbH · Magdeburg', de: 'aiio GmbH · Magdeburg' },
+    place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
       en: 'Owning the platform’s AI services: agents that analyse business processes, MCP servers and tool calling, a PDF-to-process extraction pipeline, multi-provider model selection and an LLM evaluation setup.',
       de: 'Verantwortung für die AI-Services der Plattform: Agents, die Geschäftsprozesse analysieren, MCP-Server und Tool Calling, eine PDF-to-Process-Extraction-Pipeline, Multi-Provider-Model-Selection und ein LLM-Evaluation-Setup.',
