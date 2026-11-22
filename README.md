@@ -37,7 +37,7 @@ Replace `src/assets/profile.webp` with a square image (512×512 or larger) and k
 ## Swap the CVs
 
 - German: `public/cv/Lebenslauf_Varun_Thaker.pdf`
-- English: `public/cv/Varun_Thaker_CV_EN.pdf` (**currently a copy of the German CV**; replace it with the English one)
+- English: `public/cv/Varun_Thaker_CV_EN.pdf`
 
 The "Download CV" button serves the file that matches the page language.
 
