@@ -48,7 +48,7 @@ function JourneyScroll() {
             style={{ scaleY: progress }}
           />
         </div>
-        <div className={`flex min-h-[60svh] items-center py-8 ${SCREEN}`}>
+        <div className={`flex min-h-[50svh] items-start pt-6 pb-8 md:items-center md:py-8 ${SCREEN}`}>
           <JourneyHeader id="journey-heading" />
         </div>
         <ol>
