@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# Varun Thaker — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bilingual (DE/EN) portfolio with a scroll-driven "Factory → Code" career story.
+Vite + React 19 + TypeScript, Tailwind CSS v4, Motion, react-i18next. Each language is prerendered to static HTML at build time so LinkedIn link previews work.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+npm run dev        # http://localhost:5173 → redirects to /en/ or /de/
+npm run build      # copy guard → typecheck → client build → SSR build → prerender
+npm run preview    # serve dist/
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Where things live
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| What | File |
+|---|---|
+| Name, pitch, links, CV paths | `src/content/profile.ts` |
+| Journey chapters (the story) | `src/content/journey.ts` |
+| Projects | `src/content/projects.ts` |
+| "What I build" cards | `src/content/capabilities.ts` |
+| Skills | `src/content/skills.ts` |
+| UI labels (buttons, headings) | `src/locales/en.json`, `src/locales/de.json` |
+| Page titles / link previews | `src/seo.ts`, `public/og-en.png`, `public/og-de.png` |
+| Story animation | `src/sections/Journey/FactoryScene.tsx` |
+| MCP + Auth diagram | `src/sections/Capabilities/anim/McpAuthDiagram.tsx` |
+| Browser-tab avatar | `public/favicon.svg`, `public/apple-touch-icon.png` |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Every content string is `{ en, de }`, so a missing translation is a type error. The German locale JSON must have exactly the English keys, which is also checked at compile time.
+
+## Swap the photo
+
+Replace `src/assets/profile.webp` with a square image (512×512 or larger) and keep the file name. If you change the format, update the import in `src/sections/Hero.tsx`.
+
+## Swap the CVs
+
+- German: `public/cv/Lebenslauf_Varun_Thaker.pdf`
+- English: `public/cv/Varun_Thaker_CV_EN.pdf` (**currently a copy of the German CV**; replace it with the English one)
+
+The "Download CV" button serves the file that matches the page language.
+
+## Copy guard
+
+`npm run guard` (it runs automatically before `build`) fails if the content contains phrases like "open to work", "hire me", "freelance" or the phone number. Edit `scripts/copy-guard.mjs` to change the list.
+
+## Deploy (Vercel)
+
+1. Push the repo to GitHub and import it in Vercel. The framework preset is Vite, the build command is `npm run build`, and the output directory is `dist`.
+2. Set the `VITE_SITE_URL` environment variable to the final URL, e.g. `https://varun-thaker.vercel.app` or your own domain. Canonical and Open Graph URLs use it.
+3. Link `https://<your-domain>/en/` from LinkedIn.
+
+`vercel.json` enables clean URLs with trailing slashes, so `/de` → `/de/`.
