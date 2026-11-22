@@ -55,7 +55,7 @@
 /* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 3.5rem; /* fixed header height */
   -webkit-text-size-adjust: 100%;
 }
 

@@ -5,10 +5,11 @@ import { journey } from '../../content/journey'
 export const LAST = journey.length - 1
 
 /**
- * Convert a chapter position (0 = first chapter centred, LAST = last chapter
- * centred; fractions allowed) into scroll progress 0..1.
+ * Convert a chapter position into scroll progress 0..1. The scroll story starts
+ * with an intro screen (position -1), then one screen per chapter
+ * (0 … LAST, fractions allowed).
  */
-export const at = (chapter: number) => Math.min(1, Math.max(0, chapter / LAST))
+export const at = (chapter: number) => Math.min(1, Math.max(0, (chapter + 1) / (LAST + 1)))
 
 /**
  * Opacity that fades in over chapters [inFrom → inTo] and out over
