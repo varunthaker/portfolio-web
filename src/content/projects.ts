@@ -1,7 +1,7 @@
 import type { CapabilityId } from './capabilities'
 import type { Localized } from './types'
 
-export type ProjectVisualKind = 'waveform' | 'agent' | 'payments' | 'invoice' | 'dashboard'
+export type ProjectVisualKind = 'mcp' | 'waveform' | 'agent' | 'payments' | 'invoice' | 'dashboard'
 
 export type Project = {
   id: string
@@ -17,6 +17,32 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'mcp-agents',
+    visual: 'mcp',
+    capabilities: ['mcp', 'agents'],
+    title: { en: 'MCP Servers & AI Agents', de: 'MCP-Server & AI-Agents' },
+    tagline: { en: 'Professional work', de: 'Beruflich' },
+    summary: {
+      en: 'MCP servers and tool-calling agents that give AI structured, permission-scoped access to a business-process platform.',
+      de: 'MCP-Server und Tool-Calling-Agents, die KI strukturierten Zugriff mit klaren Berechtigungen auf eine Plattform für Geschäftsprozesse geben.',
+    },
+    bullets: [
+      {
+        en: 'MCP servers expose platform data and actions as tools, usable from any MCP client.',
+        de: 'MCP-Server stellen Plattformdaten und -aktionen als Tools bereit — nutzbar von jedem MCP-Client.',
+      },
+      {
+        en: 'Agents read business-process context and generate process descriptions and improvement suggestions.',
+        de: 'Agents werten den Kontext von Geschäftsprozessen aus und erstellen Prozessbeschreibungen und Verbesserungsvorschläge.',
+      },
+      {
+        en: 'Multi-provider model selection (OpenAI, Gemini, Anthropic) plus an evaluation setup — LLM-as-a-judge and Langfuse — to pick the right model per agent.',
+        de: 'Multi-Provider-Model-Selection (OpenAI, Gemini, Anthropic) plus Evaluation-Setup — LLM-as-a-Judge und Langfuse — um pro Agent das passende Modell zu wählen.',
+      },
+    ],
+    stack: ['MCP', 'Python', 'Agno', 'Go', 'OAuth', 'Langfuse'],
+  },
   {
     id: 'voice-agent',
     visual: 'waveform',

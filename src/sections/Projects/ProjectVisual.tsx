@@ -6,6 +6,28 @@ const MONO = 'JetBrains Mono, monospace'
 export function ProjectVisual({ kind }: { kind: ProjectVisualKind }) {
   return (
     <svg viewBox="0 0 320 160" className="h-full w-full" aria-hidden="true">
+      {kind === 'mcp' && (
+        <g>
+          {[
+            { x: 50, y: 40, l: 'Claude' },
+            { x: 50, y: 120, l: 'IDE' },
+            { x: 270, y: 40, l: 'process data' },
+            { x: 270, y: 120, l: 'actions' },
+          ].map((n) => (
+            <g key={n.l}>
+              <path d={`M160 80L${n.x} ${n.y}`} stroke={n.x < 160 ? 'var(--cyan)' : 'var(--violet)'} strokeOpacity="0.6" strokeWidth="1.5" className="anim-dash" />
+              <rect x={n.x - 40} y={n.y - 13} width="80" height="26" rx="6" fill="var(--bg-elev)" stroke={n.x < 160 ? 'var(--cyan)' : 'var(--violet)'} />
+              <text x={n.x} y={n.y + 4} textAnchor="middle" fontFamily={MONO} fontSize="10" fill="var(--fg)">{n.l}</text>
+            </g>
+          ))}
+          <circle cx="160" cy="80" r="28" fill="var(--bg-elev)" stroke="var(--violet)" strokeWidth="2.5" />
+          <text x="160" y="85" textAnchor="middle" fontFamily={MONO} fontSize="13" fontWeight="600" fill="var(--fg)">MCP</text>
+          <g transform="translate(182 54)" fill="none" stroke="#22c55e" strokeWidth="2">
+            <rect x="-7" y="-1" width="14" height="10" rx="2" fill="#22c55e" fillOpacity="0.15" />
+            <path d="M-4 -1v-3a4 4 0 0 1 8 0v3" />
+          </g>
+        </g>
+      )}
       {kind === 'waveform' && (
         <g>
           {Array.from({ length: 22 }, (_, i) => {
