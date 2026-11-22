@@ -9,7 +9,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <p>
+        {/* year may differ between build-time prerender and the visitor's clock */}
+        <p suppressHydrationWarning>
           © {new Date().getFullYear()} {profile.name}. {t('footer.built')}
         </p>
         <div className="flex items-center gap-5">
