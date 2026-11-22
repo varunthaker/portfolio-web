@@ -25,4 +25,6 @@ export default tseslint.config(
       ],
     },
   },
+  // build-time SSR entry exports helpers alongside render(); fast refresh is irrelevant there
+  { files: ['src/entry-server.tsx'], rules: { 'react-refresh/only-export-components': 'off' } },
 )

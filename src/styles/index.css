@@ -207,7 +207,7 @@ h3 {
   }
   27%,
   100% {
-    opacity: 0.45;
+    opacity: 0.7;
     border-color: var(--border);
   }
 }

@@ -16,7 +16,7 @@ export function Header() {
         {t('skip')}
       </a>
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2 font-display font-semibold">
+        <a href="#top" aria-label="Varun Thaker" className="flex items-center gap-2 font-display font-semibold">
           <span
             aria-hidden="true"
             className="grid size-8 place-items-center rounded-lg border border-border bg-card font-mono text-xs"

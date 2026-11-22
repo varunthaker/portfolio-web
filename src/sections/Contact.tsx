@@ -20,7 +20,7 @@ export function Contact() {
       <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-14 text-center sm:px-12 sm:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-32 left-1/2 size-96 -translate-x-1/2 rounded-full bg-cyan/20 blur-3xl"
+          className="pointer-events-none absolute -top-32 left-1/2 size-96 -translate-x-1/2 rounded-full bg-cyan/10 blur-3xl"
         />
         <p className="relative mb-3 font-mono text-xs uppercase tracking-[0.2em] text-cyan">{t('contact.kicker')}</p>
         <h2 className="relative text-4xl font-semibold sm:text-6xl">

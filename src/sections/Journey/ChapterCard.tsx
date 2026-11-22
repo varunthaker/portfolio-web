@@ -19,7 +19,7 @@ export function ChapterCard({ chapter, index, active }: Props) {
     <article
       aria-current={active ? 'step' : undefined}
       className={`w-full min-w-0 rounded-2xl border bg-card/85 p-6 backdrop-blur-sm transition-all duration-500 sm:p-8 ${
-        active ? `${ring} opacity-100 shadow-xl shadow-black/10` : 'border-border opacity-45'
+        active ? `${ring} opacity-100 shadow-xl shadow-black/10` : 'border-border opacity-80'
       }`}
     >
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
