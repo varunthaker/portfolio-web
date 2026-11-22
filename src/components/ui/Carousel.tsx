@@ -59,21 +59,40 @@ export function Carousel({ label, children, resetKey }: Props) {
     const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0
     const offsets = (Array.from(el.children) as HTMLElement[]).map((c) => c.offsetLeft - el.offsetLeft - pad)
     const left = el.scrollLeft
+    const max = el.scrollWidth - el.clientWidth
+    // Loop: ← on the first card goes to the end, → on the last goes back to the start.
+    if (dir === -1 && left <= 4) return el.scrollTo({ left: max, behavior: 'smooth' })
+    if (dir === 1 && left >= max - (parseFloat(getComputedStyle(el).paddingRight) || 0) - 4)
+      return el.scrollTo({ left: 0, behavior: 'smooth' })
+    // At the very end the row rests past the last card's snap point (trailing padding);
+    // measure from that snap point so ← moves a whole card, not a few pixels.
+    const from = dir === -1 && left >= max - 4 ? Math.max(...offsets.filter((o) => o <= max + 4)) : left
     const target =
       dir === 1
-        ? offsets.find((o) => o > left + 4)
-        : [...offsets].reverse().find((o) => o < left - 4)
+        ? offsets.find((o) => o > from + 4)
+        : [...offsets].reverse().find((o) => o < from - 4)
     el.scrollTo({ left: Math.max(0, target ?? (dir === 1 ? el.scrollWidth : 0)), behavior: 'smooth' })
   }
 
   const btn =
-    'grid size-10 place-items-center rounded-full border border-border bg-card text-fg transition-colors hover:border-cyan disabled:cursor-default disabled:opacity-35 disabled:hover:border-border'
+    'grid size-10 place-items-center rounded-full border border-border bg-card text-fg transition-colors hover:border-cyan'
 
   return (
-    <div role="region" aria-roledescription="carousel" aria-label={label}>
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          e.preventDefault()
+          step(e.key === 'ArrowLeft' ? -1 : 1)
+        }
+      }}
+    >
       <div
         ref={track}
         onScroll={update}
+        tabIndex={0}
         className={`-mx-4 flex items-start snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pt-2 pb-4 [scrollbar-width:none] sm:-mx-6 sm:items-stretch sm:scroll-px-6 sm:px-6 [&::-webkit-scrollbar]:hidden ${
           edges.end ? '' : '[mask-image:linear-gradient(to_right,black_85%,transparent)]'
         }`}
@@ -103,10 +122,10 @@ export function Carousel({ label, children, resetKey }: Props) {
             ))}
           </div>
           <div className="flex gap-2">
-            <button type="button" className={btn} onClick={() => step(-1)} disabled={edges.start} aria-label={t('carousel.prev')}>
+            <button type="button" className={btn} onClick={() => step(-1)} aria-label={t('carousel.prev')}>
               ←
             </button>
-            <button type="button" className={btn} onClick={() => step(1)} disabled={edges.end} aria-label={t('carousel.next')}>
+            <button type="button" className={btn} onClick={() => step(1)} aria-label={t('carousel.next')}>
               →
             </button>
           </div>
