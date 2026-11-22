@@ -48,21 +48,33 @@ function Box({
   title,
   sub,
   stroke,
+  compact,
 }: {
   b: { x: number; y: number; w: number; h: number }
   title: string
   sub: string
   stroke: string
+  compact: boolean
 }) {
   return (
     <g>
       <rect x={b.x} y={b.y} width={b.w} height={b.h} rx="12" fill="var(--bg-elev)" stroke={stroke} strokeWidth="1.8" />
-      <text x={b.x + b.w / 2} y={b.y + b.h / 2 - 2} textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontSize="16" fontWeight="600" fill="var(--fg)">
+      <text
+        x={b.x + b.w / 2}
+        y={compact ? b.y + b.h / 2 + 8 : b.y + b.h / 2 - 2}
+        textAnchor="middle"
+        fontFamily="Space Grotesk, sans-serif"
+        fontSize={compact ? 21 : 16}
+        fontWeight="600"
+        fill="var(--fg)"
+      >
         {title}
       </text>
+      {!compact && (
       <text x={b.x + b.w / 2} y={b.y + b.h / 2 + 18} textAnchor="middle" fontFamily={MONO} fontSize="11" fill="var(--muted)">
         {sub}
       </text>
+      )}
     </g>
   )
 }
@@ -76,35 +88,53 @@ function Lock({ x, y, color }: { x: number; y: number; color: string }) {
   )
 }
 
-/** MCP + OAuth flow: connect → authenticate → scoped tool calls → results. */
-export function McpAuthDiagram({ animate }: { animate: boolean }) {
+/**
+ * MCP + OAuth flow: connect → authenticate → scoped tool calls → results.
+ * `compact` renders just the diagram with larger, shorter labels (card-sized).
+ */
+export function McpAuthDiagram({ animate, compact = false }: { animate: boolean; compact?: boolean }) {
   const { t } = useTranslation()
   const steps = [t('mcp.step1'), t('mcp.step2'), t('mcp.step3'), t('mcp.step4')]
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-center">
-      <svg viewBox="0 0 640 300" className="h-auto w-full" role="img" aria-label={t('mcp.diagramLabel')}>
+    <div className={compact ? 'h-full' : 'grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-center'}>
+      <svg viewBox="0 0 640 300" className={compact ? 'h-full w-full' : 'h-auto w-full'} role="img" aria-label={t('mcp.diagramLabel')}>
         {/* connectors */}
         <g fill="none" stroke="var(--border)" strokeWidth="2">
           <path d={P_CONNECT} />
           <path d={P_AUTH} />
           <path d={P_TOOL} />
         </g>
-        <g fontFamily={MONO} fontSize="11" fill="var(--muted)">
+        <g fontFamily={MONO} fontSize={compact ? 17 : 11} fill="var(--muted)">
           <text x="210" y="140" textAnchor="middle">1</text>
-          <text x="430" y="80" textAnchor="middle">2 · OAuth</text>
-          <text x="430" y="230" textAnchor="middle">3 · tools</text>
+          {compact ? (
+            <>
+              <text x="438" y="116" textAnchor="middle">OAuth</text>
+              <text x="438" y="198" textAnchor="middle">tools</text>
+            </>
+          ) : (
+            <>
+              <text x="430" y="80" textAnchor="middle">2 · OAuth</text>
+              <text x="430" y="230" textAnchor="middle">3 · tools</text>
+            </>
+          )}
         </g>
 
-        <Box b={CLIENT} title={t('mcp.client')} sub={t('mcp.clientSub')} stroke="var(--cyan)" />
-        <Box b={SERVER} title={t('mcp.server')} sub={t('mcp.serverSub')} stroke="var(--violet)" />
-        <Box b={AUTH} title={t('mcp.auth')} sub={t('mcp.authSub')} stroke="var(--amber)" />
-        <Box b={SYSTEMS} title={t('mcp.systems')} sub={t('mcp.systemsSub')} stroke="var(--border)" />
+        <Box b={CLIENT} title={t('mcp.client')} sub={t('mcp.clientSub')} stroke="var(--cyan)" compact={compact} />
+        <Box b={SERVER} title={t('mcp.server')} sub={t('mcp.serverSub')} stroke="var(--violet)" compact={compact} />
+        <Box b={AUTH} title={t('mcp.auth')} sub={t('mcp.authSub')} stroke="var(--amber)" compact={compact} />
+        <Box
+          b={SYSTEMS}
+          title={compact ? t('mcp.systemsShort') : t('mcp.systems')}
+          sub={t('mcp.systemsSub')}
+          stroke="var(--border)"
+          compact={compact}
+        />
 
         {/* Lock on the server: grey until auth succeeds, then green */}
-        <Lock x={SERVER.x + SERVER.w - 18} y={SERVER.y + 18} color="var(--muted)" />
+        <Lock x={SERVER.x + SERVER.w - 14} y={SERVER.y + 14} color="var(--muted)" />
         <g opacity={animate ? 0 : 1}>
-          <Lock x={SERVER.x + SERVER.w - 18} y={SERVER.y + 18} color="#22c55e" />
+          <Lock x={SERVER.x + SERVER.w - 14} y={SERVER.y + 14} color="#22c55e" />
           {animate && (
             <animate attributeName="opacity" dur={`${CYCLE}s`} repeatCount="indefinite" values="0;0;1;1;0" keyTimes="0;0.48;0.5;0.97;1" />
           )}
@@ -113,6 +143,7 @@ export function McpAuthDiagram({ animate }: { animate: boolean }) {
         {animate && PULSES.map((p, i) => <PulseDot key={i} p={p} />)}
       </svg>
 
+      {!compact && (
       <ol className="grid gap-2 text-sm">
         {steps.map((step, i) => (
           <li
@@ -126,6 +157,7 @@ export function McpAuthDiagram({ animate }: { animate: boolean }) {
           </li>
         ))}
       </ol>
+      )}
     </div>
   )
 }

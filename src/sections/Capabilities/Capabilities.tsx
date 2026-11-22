@@ -11,7 +11,12 @@ import { McpAuthDiagram } from './anim/McpAuthDiagram'
 import { StackAnim } from './anim/StackAnim'
 import { VoiceRagAnim } from './anim/VoiceRagAnim'
 
-const ANIMS: Record<Exclude<CapabilityId, 'mcp'>, ComponentType<{ animate: boolean }>> = {
+function McpCompact({ animate }: { animate: boolean }) {
+  return <McpAuthDiagram animate={animate} compact />
+}
+
+const ANIMS: Record<CapabilityId, ComponentType<{ animate: boolean }>> = {
+  mcp: McpCompact,
   fullstack: StackAnim,
   agents: AgentAnim,
   'rag-voice': VoiceRagAnim,
@@ -29,8 +34,7 @@ function CapabilityCard({ cap, animate, count, selected, onToggle }: CardProps) 
   const { t } = useLang()
   const { t: tr } = useTranslation()
   const { ref, loopClass } = useLoopInView<HTMLElement>()
-  const isMcp = cap.id === 'mcp'
-  const Anim = isMcp ? null : ANIMS[cap.id as Exclude<CapabilityId, 'mcp'>]
+  const Anim = ANIMS[cap.id]
 
   // The whole card is a filter toggle via the stretched button in the heading.
   const title = (
@@ -50,25 +54,13 @@ function CapabilityCard({ cap, animate, count, selected, onToggle }: CardProps) 
       ref={ref}
       className={`group relative flex flex-col rounded-2xl border bg-card p-6 transition-colors sm:p-8 ${
         selected ? 'border-cyan shadow-[0_0_0_1px_var(--cyan)]' : 'border-border hover:border-cyan/50'
-      } ${isMcp ? 'w-[88vw] max-w-[780px]' : 'w-[80vw] max-w-[360px]'} ${loopClass}`}
+      } w-[80vw] max-w-[360px] ${loopClass}`}
     >
-      {isMcp ? (
-        <>
-          <div className="mb-6 max-w-2xl">
-            <h3 className="text-2xl font-semibold">{title}</h3>
-            <p className="mt-2 text-muted">{t(cap.body)}</p>
-          </div>
-          <McpAuthDiagram animate={animate} />
-        </>
-      ) : (
-        <>
-          <div className="mb-6 aspect-[16/9] rounded-xl border border-border bg-bg/60 p-3">
-            {Anim && <Anim animate={animate} />}
-          </div>
-          <h3 className="text-xl font-semibold">{title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{t(cap.body)}</p>
-        </>
-      )}
+      <div className="mb-6 aspect-[16/9] rounded-xl border border-border bg-bg/60 p-3">
+        <Anim animate={animate} />
+      </div>
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{t(cap.body)}</p>
       <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-5">
         {cap.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
@@ -93,7 +85,7 @@ type Props = {
 export function Capabilities({ selected, counts, onToggle }: Props) {
   const animate = !useReducedMotionSafe()
   const { t } = useTranslation()
-  // AI-first: MCP (wide diagram card) leads, full-stack closes.
+  // AI-first: MCP leads, full-stack closes.
   const ORDER: CapabilityId[] = ['mcp', 'agents', 'rag-voice', 'fullstack']
   const ordered = ORDER.map((id) => capabilities.find((c) => c.id === id)!)
 

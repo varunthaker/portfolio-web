@@ -46,7 +46,8 @@
     "step2": "Server prüft die Identität per OAuth — Token mit klaren Rechten",
     "step3": "Agent ruft Tools im Rahmen seiner Berechtigungen auf",
     "step4": "Ergebnisse fließen zurück zum Client",
-    "diagramLabel": "Diagramm: Ein MCP-Client verbindet sich mit einem MCP-Server, der sich per OAuth authentifiziert und dann Geschäftssysteme mit begrenzten Rechten aufruft."
+    "diagramLabel": "Diagramm: Ein MCP-Client verbindet sich mit einem MCP-Server, der sich per OAuth authentifiziert und dann Geschäftssysteme mit begrenzten Rechten aufruft.",
+    "systemsShort": "Systeme"
   },
   "projects": {
     "details": "Details",

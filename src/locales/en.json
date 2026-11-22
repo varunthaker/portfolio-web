@@ -46,7 +46,8 @@
     "step2": "Server verifies identity via OAuth — scoped token",
     "step3": "Agent calls tools within its permissions",
     "step4": "Results flow back to the client",
-    "diagramLabel": "Diagram: an MCP client connects to an MCP server, which authenticates via OAuth and then calls business systems with scoped permissions."
+    "diagramLabel": "Diagram: an MCP client connects to an MCP server, which authenticates via OAuth and then calls business systems with scoped permissions.",
+    "systemsShort": "Systems"
   },
   "projects": {
     "details": "Details",
