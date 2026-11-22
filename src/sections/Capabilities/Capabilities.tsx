@@ -1,6 +1,5 @@
 import type { ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Section } from '../../components/ui/Section'
 import { Tag } from '../../components/ui/Tag'
 import { capabilities, type Capability, type CapabilityId } from '../../content/capabilities'
 import { useLang } from '../../hooks/useLang'
@@ -17,23 +16,45 @@ const ANIMS: Record<Exclude<CapabilityId, 'mcp'>, ComponentType<{ animate: boole
   'rag-voice': VoiceRagAnim,
 }
 
-function CapabilityCard({ cap, animate }: { cap: Capability; animate: boolean }) {
+type CardProps = {
+  cap: Capability
+  animate: boolean
+  count: number
+  selected: boolean
+  onToggle: (id: CapabilityId) => void
+}
+
+function CapabilityCard({ cap, animate, count, selected, onToggle }: CardProps) {
   const { t } = useLang()
+  const { t: tr } = useTranslation()
   const { ref, loopClass } = useLoopInView<HTMLElement>()
   const isMcp = cap.id === 'mcp'
   const Anim = isMcp ? null : ANIMS[cap.id as Exclude<CapabilityId, 'mcp'>]
 
+  // The whole card is a filter toggle via the stretched button in the heading.
+  const title = (
+    <button
+      type="button"
+      aria-pressed={selected}
+      aria-controls="projects"
+      onClick={() => onToggle(cap.id)}
+      className="text-left after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:outline-none"
+    >
+      {t(cap.title)}
+    </button>
+  )
+
   return (
     <article
       ref={ref}
-      className={`group rounded-2xl border border-border bg-card p-6 transition-colors hover:border-cyan/50 sm:p-8 ${
-        isMcp ? 'md:col-span-3' : ''
-      } ${loopClass}`}
+      className={`group relative rounded-2xl border bg-card p-6 transition-colors sm:p-8 ${
+        selected ? 'border-cyan shadow-[0_0_0_1px_var(--cyan)]' : 'border-border hover:border-cyan/50'
+      } ${isMcp ? 'md:col-span-3' : ''} ${loopClass}`}
     >
       {isMcp ? (
         <>
           <div className="mb-6 max-w-2xl">
-            <h3 className="text-2xl font-semibold">{t(cap.title)}</h3>
+            <h3 className="text-2xl font-semibold">{title}</h3>
             <p className="mt-2 text-muted">{t(cap.body)}</p>
           </div>
           <McpAuthDiagram animate={animate} />
@@ -43,32 +64,48 @@ function CapabilityCard({ cap, animate }: { cap: Capability; animate: boolean })
           <div className="mb-6 aspect-[16/9] rounded-xl border border-border bg-bg/60 p-3">
             {Anim && <Anim animate={animate} />}
           </div>
-          <h3 className="text-xl font-semibold">{t(cap.title)}</h3>
+          <h3 className="text-xl font-semibold">{title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted">{t(cap.body)}</p>
         </>
       )}
-      <div className="mt-5 flex flex-wrap gap-1.5">
+      <div className="mt-5 flex flex-wrap items-center gap-1.5">
         {cap.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
         ))}
+        <span className={`ml-auto text-sm font-medium ${selected ? 'text-cyan' : 'text-fg/80'}`}>
+          {tr('projects.count', { count })} ↓
+        </span>
       </div>
+      {/* focus ring for the stretched button */}
+      <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-2xl ring-cyan group-has-[:focus-visible]:ring-2" />
     </article>
   )
 }
 
-export function Capabilities() {
-  const { t } = useTranslation()
+type Props = {
+  selected: CapabilityId | null
+  counts: Record<CapabilityId, number>
+  onToggle: (id: CapabilityId) => void
+}
+
+/** Capability cards that double as filters for the project grid below. */
+export function Capabilities({ selected, counts, onToggle }: Props) {
   const animate = !useReducedMotionSafe()
   // MCP gets the wide slot after the three regular cards.
   const ordered = [...capabilities.filter((c) => c.id !== 'mcp'), ...capabilities.filter((c) => c.id === 'mcp')]
 
   return (
-    <Section id="build" kicker={t('build.kicker')} title={t('build.heading')} intro={t('build.intro')}>
-      <div className="grid gap-5 md:grid-cols-3">
-        {ordered.map((cap) => (
-          <CapabilityCard key={cap.id} cap={cap} animate={animate} />
-        ))}
-      </div>
-    </Section>
+    <div className="grid gap-5 md:grid-cols-3">
+      {ordered.map((cap) => (
+        <CapabilityCard
+          key={cap.id}
+          cap={cap}
+          animate={animate}
+          count={counts[cap.id]}
+          selected={selected === cap.id}
+          onToggle={onToggle}
+        />
+      ))}
+    </div>
   )
 }

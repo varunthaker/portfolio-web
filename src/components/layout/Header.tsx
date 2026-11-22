@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { LangToggle } from './LangToggle'
 import { ThemeToggle } from './ThemeToggle'
 
-const NAV = ['journey', 'build', 'projects', 'skills', 'contact'] as const
+const NAV = ['journey', 'build', 'skills', 'contact'] as const
 
 export function Header() {
   const { t } = useTranslation()

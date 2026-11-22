@@ -3,12 +3,17 @@
   "nav": {
     "journey": "Journey",
     "build": "What I build",
-    "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact"
   },
-  "theme": { "toLight": "Switch to light theme", "toDark": "Switch to dark theme" },
-  "lang": { "label": "Language", "switchTo": "Deutsch" },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "lang": {
+    "label": "Language",
+    "switchTo": "Deutsch"
+  },
   "hero": {
     "eyebrow": "Product Engineer · Full-Stack & AI",
     "ctaStory": "Read my story",
@@ -25,8 +30,8 @@
   },
   "build": {
     "kicker": "What I build",
-    "heading": "End-to-end, from database to AI agent",
-    "intro": "I like owning the whole path: data model, API, interface — and the AI layer on top."
+    "heading": "What I build",
+    "intro": "Four things I do end to end. Pick one to see the projects behind it."
   },
   "mcp": {
     "client": "MCP Client",
@@ -44,15 +49,17 @@
     "diagramLabel": "Diagram: an MCP client connects to an MCP server, which authenticates via OAuth and then calls business systems with scoped permissions."
   },
   "projects": {
-    "kicker": "Projects",
-    "heading": "Things I've built",
-    "intro": "Production work and side projects — each one built for real people with a real problem.",
     "details": "Details",
     "close": "Close",
     "demo": "Watch demo",
     "live": "Visit site",
     "code": "View code",
-    "stack": "Stack"
+    "stack": "Stack",
+    "headingAll": "All projects",
+    "headingFor": "Projects: {{name}}",
+    "showAll": "Show all",
+    "count_one": "{{count}} project",
+    "count_other": "{{count}} projects"
   },
   "skills": {
     "kicker": "Toolbox",

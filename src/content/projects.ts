@@ -1,3 +1,4 @@
+import type { CapabilityId } from './capabilities'
 import type { Localized } from './types'
 
 export type ProjectVisualKind = 'waveform' | 'agent' | 'payments' | 'invoice' | 'dashboard'
@@ -11,12 +12,15 @@ export type Project = {
   stack: string[]
   link?: { kind: 'demo' | 'live' | 'code'; href: string }
   visual: ProjectVisualKind
+  /** Which "What I build" capabilities this project demonstrates (used as filters). */
+  capabilities: CapabilityId[]
 }
 
 export const projects: Project[] = [
   {
     id: 'voice-agent',
     visual: 'waveform',
+    capabilities: ['rag-voice', 'agents'],
     title: { en: 'Voice Agent with RAG', de: 'Voice Agent mit RAG' },
     tagline: { en: 'Side project', de: 'Eigenes Projekt' },
     summary: {
@@ -42,6 +46,7 @@ export const projects: Project[] = [
   {
     id: 'warehouse-assistant',
     visual: 'agent',
+    capabilities: ['agents', 'mcp', 'rag-voice', 'fullstack'],
     title: { en: 'AI Warehouse Inventory Assistant', de: 'AI Warehouse Inventory Assistant' },
     tagline: { en: 'AI agent with RAG & MCP', de: 'AI-Agent mit RAG & MCP' },
     summary: {
@@ -68,6 +73,7 @@ export const projects: Project[] = [
   {
     id: 'event-registration',
     visual: 'payments',
+    capabilities: ['fullstack'],
     title: { en: 'Event Registration Platform', de: 'Event-Registrierungsplattform' },
     tagline: { en: 'Team lead · side project', de: 'Teamleitung · eigenes Projekt' },
     summary: {
@@ -93,6 +99,7 @@ export const projects: Project[] = [
   {
     id: 'rechnung',
     visual: 'invoice',
+    capabilities: ['fullstack'],
     title: { en: 'Rechnung — Invoicing App', de: 'Rechnung — Rechnungs-App' },
     tagline: { en: 'Built for a small business', de: 'Für ein kleines Unternehmen gebaut' },
     summary: {
@@ -118,6 +125,7 @@ export const projects: Project[] = [
   {
     id: 'dashboard-rebuild',
     visual: 'dashboard',
+    capabilities: ['fullstack'],
     title: { en: 'Customer Dashboard Rebuild', de: 'Customer-Dashboard-Neuaufbau' },
     tagline: { en: 'aiio GmbH', de: 'aiio GmbH' },
     summary: {

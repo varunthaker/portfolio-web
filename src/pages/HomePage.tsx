@@ -4,8 +4,7 @@ import { Footer } from '../components/layout/Footer'
 import { BlueprintGrid } from '../components/ui/BlueprintGrid'
 import { Hero } from '../sections/Hero'
 import { Journey } from '../sections/Journey/Journey'
-import { Capabilities } from '../sections/Capabilities/Capabilities'
-import { Projects } from '../sections/Projects/Projects'
+import { Work } from '../sections/Work'
 import { Skills } from '../sections/Skills'
 import { Contact } from '../sections/Contact'
 
@@ -17,8 +16,7 @@ export function HomePage() {
       <main id="main">
         <Hero />
         <Journey />
-        <Capabilities />
-        <Projects />
+        <Work />
         <Skills />
         <Contact />
       </main>
