@@ -5,7 +5,7 @@ import { journey, journeyOutro } from '../../content/journey'
 import { useLang } from '../../hooks/useLang'
 import { useChapterProgress } from '../../hooks/useChapterProgress'
 import { ChapterCard } from './ChapterCard'
-import { FactoryScene } from './FactoryScene'
+import { ProcessScene } from './ProcessScene'
 import { JourneyStatic } from './JourneyStatic'
 
 function JourneyHeader({ id }: { id?: string }) {
@@ -36,7 +36,7 @@ function JourneyScroll() {
         <div className="sticky top-14 z-10 -mx-4 flex h-[42svh] items-center justify-center bg-bg px-4 md:mx-0 md:h-[calc(100svh-3.5rem)] md:bg-transparent md:px-0">
           {/* mobile: solid behind the scene, soft fade just below it */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-full h-10 bg-gradient-to-b from-bg to-transparent md:hidden" />
-          <FactoryScene progress={progress} className="h-full max-h-[560px] w-auto max-w-full" />
+          <ProcessScene progress={progress} className="h-full max-h-[560px] w-auto max-w-full" />
         </div>
       </div>
 

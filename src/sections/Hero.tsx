@@ -2,17 +2,18 @@ import { useTranslation } from 'react-i18next'
 import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
 import photo from '../assets/profile.webp'
-import { Gear } from '../components/ui/Gear'
 
-/** Decorative orbit: a gear on the "factory" side turning into connected nodes on the "code" side. */
+/** Decorative orbit: a process diagram on one side turning into connected nodes on the other. */
 function HeroOrbit() {
   return (
     <svg viewBox="0 0 400 400" className="absolute inset-0 size-full" aria-hidden="true">
       <circle cx="200" cy="200" r="182" fill="none" stroke="var(--border)" strokeDasharray="2 8" />
       <g className="anim-spin" style={{ animationDuration: '60s' }}>
-        {/* gear (amber) */}
-        <g transform="translate(36 120)">
-          <Gear r={20} teeth={10} stroke="var(--amber)" />
+        {/* mini process diagram (amber) */}
+        <g transform="translate(14 104)" fill="none" stroke="var(--amber)" strokeWidth="2">
+          <rect x="0" y="8" width="22" height="16" rx="4" />
+          <path d="M22 16h10" />
+          <path d="M44 4L56 16L44 28L32 16Z" />
         </g>
         {/* nodes (cyan) */}
         <g stroke="var(--cyan)" fill="var(--bg)">

@@ -1,6 +1,6 @@
 import type { Localized } from './types'
 
-export type SceneState = 'gears' | 'conveyor' | 'cells' | 'vba' | 'dissolve' | 'services' | 'agents'
+export type SceneState = 'process' | 'kpis' | 'cells' | 'vba' | 'dissolve' | 'services' | 'agents'
 
 export type Chapter = {
   id: string
@@ -16,23 +16,23 @@ export const journey: Chapter[] = [
   {
     id: 'mechanical',
     period: '2012 – 2016',
-    scene: 'gears',
+    scene: 'process',
     title: { en: 'Mechanical Engineering', de: 'Maschinenbau' },
     place: { en: 'B.Tech · University of Mumbai, India', de: 'B.Tech · University of Mumbai, Indien' },
     body: {
-      en: 'It started with machines: gears, tolerances and technical drawings. I learned to think in systems where every part has to fit.',
-      de: 'Alles begann mit Maschinen: Zahnräder, Toleranzen und technische Zeichnungen. Ich lernte, in Systemen zu denken, in denen jedes Teil passen muss.',
+      en: 'It started with engineering: understanding how systems fit together — and how every step affects the next.',
+      de: 'Alles begann mit Ingenieurwesen: verstehen, wie Systeme zusammenspielen — und wie jeder Schritt den nächsten beeinflusst.',
     },
   },
   {
     id: 'industrial',
     period: '2019 – 2022',
-    scene: 'conveyor',
+    scene: 'kpis',
     title: { en: 'Industrial Engineering', de: 'Wirtschaftsingenieurwesen' },
     place: { en: 'Technische Universität Berlin', de: 'Technische Universität Berlin' },
     body: {
-      en: 'From single machines to whole processes: supply chain, lean, quality and project management — and the business side of every decision.',
-      de: 'Von einzelnen Maschinen zu ganzen Prozessen: Supply Chain, Lean, Qualitäts- und Projektmanagement — und die betriebswirtschaftliche Seite jeder Entscheidung.',
+      en: 'From single steps to whole processes: supply chain, lean, quality and project management — and the business side of every decision.',
+      de: 'Von einzelnen Arbeitsschritten zu ganzen Prozessen: Supply Chain, Lean, Qualitäts- und Projektmanagement — und die betriebswirtschaftliche Seite jeder Entscheidung.',
     },
   },
   {
@@ -45,8 +45,8 @@ export const journey: Chapter[] = [
       de: 'Werkstudent · Deutsche Energie System GmbH',
     },
     body: {
-      en: 'I built an Excel tool for demand-driven material management and KPI tracking. The boxes on the conveyor became rows and columns.',
-      de: 'Ich entwickelte ein Excel-Tool für Demand-Driven-Materialmanagement und KPI-Tracking. Aus den Kisten auf dem Förderband wurden Zeilen und Spalten.',
+      en: 'I built an Excel tool for demand-driven material management and KPI tracking. The process became rows, columns and KPIs.',
+      de: 'Ich entwickelte ein Excel-Tool für Demand-Driven-Materialmanagement und KPI-Tracking. Aus dem Prozess wurden Zeilen, Spalten und KPIs.',
     },
   },
   {
@@ -73,8 +73,8 @@ export const journey: Chapter[] = [
       de: 'Selbststudium · Spiced Academy Berlin (Fullstack Web Development)',
     },
     body: {
-      en: 'Evenings with JavaScript, React, design patterns and Git, then an intensive full-stack bootcamp. The factory dissolves — gears become nodes, belts become data pipelines.',
-      de: 'Abende mit JavaScript, React, Design Patterns und Git, danach ein intensives Fullstack-Bootcamp. Die Fabrik löst sich auf — Zahnräder werden zu Knoten, Förderbänder zu Datenpipelines.',
+      en: 'Evenings with JavaScript, React, design patterns and Git, then an intensive full-stack bootcamp. The process diagram comes alive — boxes become services, arrows become APIs.',
+      de: 'Abende mit JavaScript, React, Design Patterns und Git, danach ein intensives Fullstack-Bootcamp. Das Prozessdiagramm wird lebendig — Kästen werden zu Services, Pfeile zu APIs.',
     },
   },
   {
@@ -106,5 +106,5 @@ export const journeyOutro: Localized = {
   de: 'Gleiche Denkweise: Prozesse → Systeme. Neue Werkzeuge.',
 }
 
-/** Chapters 1–4 are the "factory" era (amber), 5–7 the "software" era (cyan). */
+/** Chapters 1–4 are the "process" era (amber), 5–7 the "software" era (cyan). */
 export const isSoftwareEra = (index: number) => index >= 4

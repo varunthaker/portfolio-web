@@ -1,12 +1,12 @@
 import { useMotionValue } from 'motion/react'
 import { journey } from '../../content/journey'
 import { ChapterCard } from './ChapterCard'
-import { FactoryScene } from './FactoryScene'
+import { ProcessScene } from './ProcessScene'
 import { at } from './sceneTimeline'
 
 function StaticScene({ chapter }: { chapter: number }) {
   const progress = useMotionValue(at(chapter))
-  return <FactoryScene progress={progress} animate={false} className="size-full" />
+  return <ProcessScene progress={progress} animate={false} className="size-full" />
 }
 
 /** Reduced-motion version: a calm, stepped timeline with one still scene per chapter. */
