@@ -63,7 +63,9 @@
   },
   "skills": {
     "kicker": "Werkzeugkasten",
-    "heading": "Womit ich arbeite"
+    "heading": "Womit ich arbeite",
+    "also": "Außerdem",
+    "tools": "Tägliche Werkzeuge"
   },
   "contact": {
     "kicker": "Kontakt",
