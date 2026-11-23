@@ -87,10 +87,5 @@ export const journey: Chapter[] = [
   },
 ]
 
-export const journeyOutro: Localized = {
-  en: 'Same mindset: processes → systems. New tools.',
-  de: 'Gleiche Denkweise: Prozesse → Systeme. Neue Werkzeuge.',
-}
-
 /** Chapters 1–3 are the "process" era (amber), 4–6 the "software" era (cyan). */
 export const isSoftwareEra = (index: number) => index >= 3

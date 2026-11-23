@@ -1,8 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
-import { journey, journeyOutro } from '../../content/journey'
-import { useLang } from '../../hooks/useLang'
+import { journey } from '../../content/journey'
 import { useChapterProgress } from '../../hooks/useChapterProgress'
 import { ChapterCard } from './ChapterCard'
 import { ProcessScene } from './ProcessScene'
@@ -65,10 +64,8 @@ function JourneyScroll() {
 }
 
 export function Journey() {
-  const { t: tl } = useLang()
-
   return (
-    <section id="journey" aria-labelledby="journey-heading" className="relative">
+    <section id="journey" aria-labelledby="journey-heading" className="relative pb-16 sm:pb-24">
       {/* Both versions are in the prerendered HTML; CSS picks one, so there is no
           layout jump after hydration for reduced-motion visitors. */}
       <div className="motion-reduce:hidden">
@@ -80,10 +77,6 @@ export function Journey() {
         </div>
         <JourneyStatic />
       </div>
-
-      <p className="mx-auto max-w-3xl px-4 py-24 text-center font-display text-2xl font-semibold sm:py-32 sm:text-4xl">
-        <span className="text-gradient">{tl(journeyOutro)}</span>
-      </p>
     </section>
   )
 }
