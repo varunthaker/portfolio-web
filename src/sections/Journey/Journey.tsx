@@ -52,7 +52,15 @@ function JourneyScroll() {
         </div>
         <ol>
           {journey.map((chapter, i) => (
-            <li key={chapter.id} className={`flex min-h-[80svh] items-center py-8 ${SCREEN}`}>
+            <li
+              key={chapter.id}
+              // the last chapter only needs half a screen, so no empty gap before the next section
+              className={
+                i === journey.length - 1
+                  ? 'flex min-h-[50svh] items-start py-8 md:min-h-[55svh] md:pt-[18svh]'
+                  : `flex min-h-[80svh] items-center py-8 ${SCREEN}`
+              }
+            >
               {/* active 0 is the intro screen, so chapter i is active at i + 1 */}
               <ChapterCard chapter={chapter} index={i} active={active === i + 1} />
             </li>
@@ -65,7 +73,7 @@ function JourneyScroll() {
 
 export function Journey() {
   return (
-    <section id="journey" aria-labelledby="journey-heading" className="relative pb-16 sm:pb-24">
+    <section id="journey" aria-labelledby="journey-heading" className="relative">
       {/* Both versions are in the prerendered HTML; CSS picks one, so there is no
           layout jump after hydration for reduced-motion visitors. */}
       <div className="motion-reduce:hidden">
