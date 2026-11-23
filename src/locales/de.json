@@ -74,9 +74,6 @@
     "body": "Neugierig auf eines meiner Projekte oder Lust auf einen Austausch über Go, AI-Agents oder MCP? Ich freue mich über jede Nachricht.",
     "email": "E-Mail schreiben"
   },
-  "footer": {
-    "built": "Gebaut mit React, Motion & Tailwind CSS."
-  },
   "carousel": {
     "prev": "Zurück",
     "next": "Weiter"
