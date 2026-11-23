@@ -1,31 +1,26 @@
-import { useTranslation } from 'react-i18next'
-import { isSoftwareEra, journey } from '../../content/journey'
-import { useLang } from '../../hooks/useLang'
-import { ItemIcon } from './ItemIcon'
+import { useMotionValue } from 'motion/react'
+import { journey } from '../../content/journey'
+import { ChapterCard } from './ChapterCard'
+import { ProcessScene } from './ProcessScene'
+import { at } from './sceneTimeline'
 
-/** Reduced-motion version: a compact list — time, title, one line. */
+function StaticScene({ chapter }: { chapter: number }) {
+  const progress = useMotionValue(at(chapter))
+  return <ProcessScene progress={progress} animate={false} className="size-full" />
+}
+
+/** Reduced-motion version: a calm, stepped timeline with one still scene per chapter. */
 export function JourneyStatic() {
-  const { t } = useTranslation()
-  const { t: tl } = useLang()
   return (
-    <ol className="mx-auto grid max-w-3xl gap-3 px-4 sm:px-6">
-      {journey.map((chapter, i) => {
-        const accent = isSoftwareEra(i) ? 'var(--cyan)' : 'var(--amber)'
-        return (
-          <li key={chapter.id} className="flex items-start gap-4 rounded-xl border border-border bg-card p-4">
-            <svg viewBox="-3 -3 36 36" className="size-9 shrink-0" aria-hidden="true">
-              <ItemIcon item={chapter.item} color={accent} />
-            </svg>
-            <div>
-              <p className="font-mono text-[11px] tracking-[0.15em]" style={{ color: accent }}>
-                {chapter.period.replace('{now}', t('journey.now'))}
-              </p>
-              <h3 className="font-semibold">{tl(chapter.title)}</h3>
-              <p className="text-sm text-muted">{tl(chapter.short)}</p>
-            </div>
-          </li>
-        )
-      })}
+    <ol className="mx-auto grid max-w-4xl gap-6 px-4 sm:px-6">
+      {journey.map((chapter, i) => (
+        <li key={chapter.id} className="grid items-center gap-4 sm:grid-cols-[180px_1fr]">
+          <div className="mx-auto aspect-square w-40 rounded-2xl border border-border bg-card sm:w-full">
+            <StaticScene chapter={i} />
+          </div>
+          <ChapterCard chapter={chapter} index={i} active />
+        </li>
+      ))}
     </ol>
   )
 }
