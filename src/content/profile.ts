@@ -20,12 +20,12 @@ export const profile: Profile = {
     de: 'Full-Stack- & AI-Engineer',
   },
   pitch: {
-    en: 'I build full-stack web apps — and the AI agents inside them.',
-    de: 'Ich baue Full-Stack-Webanwendungen — und die AI-Agents darin.',
+    en: 'I turn business problems into software that works — with AI where it makes the difference.',
+    de: 'Ich mache aus Geschäftsproblemen Software, die funktioniert — mit KI dort, wo sie den Unterschied macht.',
   },
   summary: {
-    en: '3+ years with Python and React/TypeScript, Go for the past year. I ship production apps end to end — database, API, interface — and add AI where it actually helps: agents, MCP servers, RAG. Trained as an industrial engineer, I understand the process first, then write the code.',
-    de: 'Über drei Jahre Erfahrung mit Python und React/TypeScript, seit einem Jahr auch Go. Ich entwickle produktive Anwendungen von Ende zu Ende — Datenbank, API, Oberfläche — und setze KI dort ein, wo sie wirklich hilft: Agents, MCP-Server, RAG. Als Wirtschaftsingenieur verstehe ich zuerst den Prozess, dann schreibe ich den Code.',
+    en: 'Full-stack engineer with 3+ years in Python and React/TypeScript, plus Go — and a background in industrial engineering.',
+    de: 'Full-Stack-Engineer mit über drei Jahren Erfahrung in Python und React/TypeScript, dazu Go — mit Hintergrund im Wirtschaftsingenieurwesen.',
   },
   stackLine: 'Python · React/TypeScript · Go · PostgreSQL · AI Agents · MCP · RAG',
   emailParts: ['vthakar3', 'gmail.com'],
