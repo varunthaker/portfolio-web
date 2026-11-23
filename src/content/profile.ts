@@ -20,8 +20,8 @@ export const profile: Profile = {
     de: 'Full-Stack- & AI-Engineer',
   },
   pitch: {
-    en: 'I turn business problems into software that works — with AI where it makes the difference.',
-    de: 'Ich mache aus Geschäftsproblemen Software, die funktioniert — mit KI dort, wo sie den Unterschied macht.',
+    en: 'I turn business problems into working products, powered by AI.',
+    de: 'Ich verwandle Geschäftsprobleme in funktionierende, KI-gestützte Produkte.',
   },
   summary: {
     en: 'Full-stack engineer with 3+ years in Python and React/TypeScript, plus Go — and a background in industrial engineering.',
