@@ -21,7 +21,7 @@ export function Work() {
   const visible = filter ? projects.filter((p) => p.capabilities.includes(filter)) : projects
 
   return (
-    <Section id="build" className="!pt-14 sm:!pt-16 !scroll-mt-0 sm:!scroll-mt-0" kicker={t('build.kicker')} title={t('build.heading')} intro={t('build.intro')}>
+    <Section id="build" kicker={t('build.kicker')} title={t('build.heading')} intro={t('build.intro')}>
       <Capabilities selected={filter} counts={counts} onToggle={(id) => setFilter((f) => (f === id ? null : id))} />
       <Projects projects={visible} filter={filter} onClearFilter={() => setFilter(null)} />
     </Section>
