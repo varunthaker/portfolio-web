@@ -1,6 +1,7 @@
 import type { Localized } from './types'
 
-export type SceneState = 'process' | 'kpis' | 'cells' | 'vba' | 'dissolve' | 'services' | 'agents'
+/** What the journey character carries at this milestone. */
+export type JourneyItem = 'blueprint' | 'flow' | 'sheet' | 'macro' | 'laptop' | 'server' | 'mcp'
 
 export type Chapter = {
   id: string
@@ -9,14 +10,20 @@ export type Chapter = {
   title: Localized
   place: Localized
   body: Localized
-  scene: SceneState
+  item: JourneyItem
+  /** One short line shown on the trail. */
+  short: Localized
 }
 
 export const journey: Chapter[] = [
   {
     id: 'mechanical',
     period: '2012 – 2016',
-    scene: 'process',
+    item: 'blueprint',
+    short: {
+      en: 'Engineering degree in Mumbai — thinking in systems.',
+      de: 'Ingenieurstudium in Mumbai — Denken in Systemen.',
+    },
     title: { en: 'Mechanical Engineering', de: 'Maschinenbau' },
     place: { en: 'B.Tech · University of Mumbai, India', de: 'B.Tech · University of Mumbai, Indien' },
     body: {
@@ -27,7 +34,11 @@ export const journey: Chapter[] = [
   {
     id: 'industrial',
     period: '2019 – 2022',
-    scene: 'kpis',
+    item: 'flow',
+    short: {
+      en: 'TU Berlin: supply chain, lean and business processes.',
+      de: 'TU Berlin: Supply Chain, Lean und Geschäftsprozesse.',
+    },
     title: { en: 'Industrial Engineering', de: 'Wirtschaftsingenieurwesen' },
     place: { en: 'Technische Universität Berlin', de: 'Technische Universität Berlin' },
     body: {
@@ -38,7 +49,11 @@ export const journey: Chapter[] = [
   {
     id: 'supply-chain',
     period: '2021',
-    scene: 'cells',
+    item: 'sheet',
+    short: {
+      en: 'Built an Excel tool for material and KPI tracking.',
+      de: 'Excel-Tool für Material- und KPI-Tracking gebaut.',
+    },
     title: { en: 'Supply Chain, in spreadsheets', de: 'Supply Chain, in Tabellen' },
     place: {
       en: 'Working student · Energy-systems company',
@@ -52,7 +67,11 @@ export const journey: Chapter[] = [
   {
     id: 'reporting',
     period: '2022 – 2023',
-    scene: 'vba',
+    item: 'macro',
+    short: {
+      en: 'Automated reports with VBA — and got hooked on code.',
+      de: 'Reports mit VBA automatisiert — und Code lieben gelernt.',
+    },
     title: { en: 'The first lines of code', de: 'Die ersten Zeilen Code' },
     place: {
       en: 'Working student · Facility-services company',
@@ -66,7 +85,11 @@ export const journey: Chapter[] = [
   {
     id: 'switch',
     period: '2022 – 2023',
-    scene: 'dissolve',
+    item: 'laptop',
+    short: {
+      en: 'Self-study and Spiced Academy: became a developer.',
+      de: 'Selbststudium und Spiced Academy: Entwickler geworden.',
+    },
     title: { en: 'Switching tracks', de: 'Der Quereinstieg' },
     place: {
       en: 'Self-study · Spiced Academy Berlin (Full-Stack Web Development)',
@@ -80,7 +103,11 @@ export const journey: Chapter[] = [
   {
     id: 'platform',
     period: '2024 – {now}',
-    scene: 'services',
+    item: 'server',
+    short: {
+      en: 'Python, React and Go on a B2B process platform.',
+      de: 'Python, React und Go auf einer B2B-Prozessplattform.',
+    },
     title: { en: 'Full-Stack Engineer', de: 'Fullstack Engineer' },
     place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
@@ -91,7 +118,11 @@ export const journey: Chapter[] = [
   {
     id: 'ai',
     period: '2024 – {now}',
-    scene: 'agents',
+    item: 'mcp',
+    short: {
+      en: 'AI agents, MCP servers and LLM evaluation in production.',
+      de: 'AI-Agents, MCP-Server und LLM-Evaluation im Einsatz.',
+    },
     title: { en: 'AI agents & MCP', de: 'AI-Agents & MCP' },
     place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
