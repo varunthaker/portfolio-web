@@ -30,6 +30,10 @@ function JourneyScroll() {
 
   return (
     <div ref={ref} className="relative mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-2 md:gap-12">
+      {/* phones: heading above the scene, so there is no big gap after the hero */}
+      <div className="pt-4 pb-6 md:hidden">
+        <JourneyHeader id="journey-heading" />
+      </div>
       {/* `contents` on mobile lets the sticky scene stick within the whole tall container */}
       <div className="contents md:block">
         <div className="sticky top-14 z-10 -mx-4 flex h-[42svh] items-center justify-center bg-bg px-4 md:mx-0 md:h-[calc(100svh-3.5rem)] md:bg-transparent md:px-0">
@@ -47,8 +51,11 @@ function JourneyScroll() {
             style={{ scaleY: progress }}
           />
         </div>
-        <div className={`flex min-h-[50svh] items-start pt-6 pb-8 md:items-center md:py-8 ${SCREEN}`}>
-          <JourneyHeader id="journey-heading" />
+        {/* desktop: heading next to the scene (on phones this is just a short lead-in) */}
+        <div className="flex min-h-[12svh] items-start md:min-h-[45svh] md:pt-10">
+          <div className="hidden md:block">
+            <JourneyHeader />
+          </div>
         </div>
         <ol>
           {journey.map((chapter, i) => (
@@ -57,7 +64,7 @@ function JourneyScroll() {
               // the last chapter only needs half a screen, so no empty gap before the next section
               className={
                 i === journey.length - 1
-                  ? 'flex min-h-[50svh] items-start py-8 md:min-h-[55svh] md:pt-[18svh]'
+                  ? 'flex min-h-[40svh] items-start py-8 md:min-h-[42svh] md:pt-[8svh]'
                   : `flex min-h-[80svh] items-center py-8 ${SCREEN}`
               }
             >
