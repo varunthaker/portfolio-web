@@ -31,7 +31,7 @@ function JourneyScroll() {
   return (
     <div ref={ref} className="relative mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-2 md:gap-12">
       {/* phones: heading above the scene, so there is no big gap after the hero */}
-      <div className="pt-36 pb-6 md:hidden">
+      <div className="pt-24 pb-6 md:hidden">
         <JourneyHeader id="journey-heading" />
       </div>
       {/* `contents` on mobile lets the sticky scene stick within the whole tall container */}
@@ -80,7 +80,7 @@ function JourneyScroll() {
 
 export function Journey() {
   return (
-    <section id="journey" aria-labelledby="journey-heading" className="relative -scroll-mt-28 md:scroll-mt-0">
+    <section id="journey" aria-labelledby="journey-heading" className="relative">
       {/* Both versions are in the prerendered HTML; CSS picks one, so there is no
           layout jump after hydration for reduced-motion visitors. */}
       <div className="motion-reduce:hidden">

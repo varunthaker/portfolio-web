@@ -13,7 +13,7 @@ type SectionProps = {
 export function Section({ id, kicker, title, intro, children, className = '' }: SectionProps) {
   const headingId = title ? `${id}-heading` : undefined
   return (
-    <section id={id} aria-labelledby={headingId} className={`relative -scroll-mt-20 py-24 sm:-scroll-mt-24 sm:py-28 ${className}`}>
+    <section id={id} aria-labelledby={headingId} className={`relative -scroll-mt-14 py-20 sm:-scroll-mt-16 sm:py-24 ${className}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {title && (
           <header className="mb-12 max-w-2xl sm:mb-16">
