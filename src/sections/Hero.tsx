@@ -11,7 +11,7 @@ export function Hero() {
   const { t: tl } = useLang()
 
   return (
-    <section id="top" className="relative flex min-h-[82svh] items-center pt-20 pb-6">
+    <section id="top" className="relative flex min-h-[86svh] items-center pt-20 pb-6">
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 sm:px-6 md:grid-cols-[1.25fr_1fr]">
         <div className="order-2 md:order-1">
           <p className="anim-rise mb-4 font-mono text-xs uppercase tracking-[0.2em] text-cyan">
