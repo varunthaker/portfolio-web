@@ -26,7 +26,7 @@ npm run lint
 | Page titles / link previews | `src/seo.ts`, `public/og-en.png`, `public/og-de.png` |
 | Story animation | `src/sections/Journey/FactoryScene.tsx` |
 | MCP + Auth diagram | `src/sections/Capabilities/anim/McpAuthDiagram.tsx` |
-| Browser-tab avatar | `public/favicon.svg`, `public/apple-touch-icon.png` |
+| Browser-tab icon | `public/favicon-32.png`, `public/favicon-48.png`, `public/apple-touch-icon.png` (from the avatar) |
 
 Every content string is `{ en, de }`, so a missing translation is a type error. The German locale JSON must have exactly the English keys, which is also checked at compile time.
 
