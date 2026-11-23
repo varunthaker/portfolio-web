@@ -1,35 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
-import photo from '../assets/avatar.webp'
+import photo from '../assets/photo.webp'
 
-/** Decorative orbit: a process diagram on one side turning into connected nodes on the other. */
-function HeroOrbit() {
-  return (
-    <svg viewBox="0 0 400 400" className="absolute inset-0 size-full" aria-hidden="true">
-      <circle cx="200" cy="200" r="182" fill="none" stroke="var(--border)" strokeDasharray="2 8" />
-      <g className="anim-spin" style={{ animationDuration: '60s' }}>
-        {/* mini process diagram (amber) */}
-        <g transform="translate(14 104)" fill="none" stroke="var(--amber)" strokeWidth="2">
-          <rect x="0" y="8" width="22" height="16" rx="4" />
-          <path d="M22 16h10" />
-          <path d="M44 4L56 16L44 28L32 16Z" />
-        </g>
-        {/* nodes (cyan) */}
-        <g stroke="var(--cyan)" fill="var(--bg)">
-          <line x1="364" y1="270" x2="320" y2="345" strokeOpacity="0.5" />
-          <line x1="320" y1="345" x2="250" y2="378" strokeOpacity="0.5" />
-          <circle cx="364" cy="270" r="9" strokeWidth="2" />
-          <circle cx="320" cy="345" r="7" strokeWidth="2" />
-          <circle cx="250" cy="378" r="6" strokeWidth="2" />
-        </g>
-        <text x="300" y="44" fill="var(--violet)" fontFamily="var(--font-mono)" fontSize="16">
-          {'{ }'}
-        </text>
-      </g>
-    </svg>
-  )
-}
+/** Soft fade on all edges, slightly stronger at the bottom. */
+const FADE = 'radial-gradient(closest-side at 50% 44%, #000 58%, transparent 100%)'
 
 export function Hero() {
   const { t } = useTranslation()
@@ -79,22 +54,17 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="anim-rise order-1 mx-auto w-56 sm:w-72 md:order-2 md:w-full md:max-w-sm" style={{ animationDelay: '120ms' }}>
-          <div className="relative aspect-square">
-            <HeroOrbit />
-            <div className="absolute inset-[14%] rounded-full bg-gradient-to-br from-amber to-cyan p-[3px] shadow-[0_0_80px_-20px_var(--cyan)]">
-              <div className="size-full overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_35%,#9b85ec,#6a4fcf_70%)]">
-                <img
-                  src={photo}
-                  alt={t('hero.photoAlt')}
-                  width={640}
-                  height={640}
-                  fetchPriority="high"
-                  className="size-full object-cover object-top"
-                />
-              </div>
-            </div>
-          </div>
+        <div className="anim-rise order-1 mx-auto w-52 sm:w-64 md:order-2 md:w-full md:max-w-[340px]" style={{ animationDelay: '120ms' }}>
+          {/* No frame: the photo fades softly into the page */}
+          <img
+            src={photo}
+            alt={t('hero.photoAlt')}
+            width={640}
+            height={640}
+            fetchPriority="high"
+            className="aspect-square w-full object-cover"
+            style={{ maskImage: FADE, WebkitMaskImage: FADE }}
+          />
         </div>
       </div>
 
