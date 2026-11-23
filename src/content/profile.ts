@@ -10,6 +10,7 @@ export type Profile = {
   emailParts: readonly [user: string, domain: string]
   linkedin: string
   github: string
+  xing: string
   location: Localized
 }
 
@@ -31,5 +32,6 @@ export const profile: Profile = {
   emailParts: ['vthakar3', 'gmail.com'],
   linkedin: 'https://www.linkedin.com/in/varun-thaker-0369/',
   github: 'https://github.com/varunthaker',
+  xing: 'https://www.xing.com/profile/Varun_Thaker',
   location: { en: 'Germany', de: 'Deutschland' },
 }

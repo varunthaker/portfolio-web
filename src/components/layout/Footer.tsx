@@ -10,6 +10,9 @@ export function Footer() {
         <a href={profile.github} target="_blank" rel="noopener noreferrer" className="hover:text-fg">
           GitHub
         </a>
+        <a href={profile.xing} target="_blank" rel="noopener noreferrer" className="hover:text-fg">
+          XING
+        </a>
       </div>
     </footer>
   )

@@ -35,6 +35,9 @@ export function Contact() {
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className={linkClass}>
             GitHub ↗
           </a>
+          <a href={profile.xing} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            XING ↗
+          </a>
         </div>
       </div>
     </Section>
