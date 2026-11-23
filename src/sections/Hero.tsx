@@ -3,9 +3,6 @@ import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
 import photo from '../assets/photo.webp'
 
-/** Soft fade on all edges, slightly stronger at the bottom. */
-const FADE = 'radial-gradient(closest-side at 50% 44%, #000 58%, transparent 100%)'
-
 export function Hero() {
   const { t } = useTranslation()
   const { t: tl } = useLang()
@@ -55,15 +52,14 @@ export function Hero() {
         </div>
 
         <div className="anim-rise order-1 mx-auto w-52 sm:w-64 md:order-2 md:w-full md:max-w-[340px]" style={{ animationDelay: '120ms' }}>
-          {/* No frame: the photo fades softly into the page */}
+          {/* Clean portrait: no ring or decoration, just a soft shadow */}
           <img
             src={photo}
             alt={t('hero.photoAlt')}
             width={640}
             height={640}
             fetchPriority="high"
-            className="aspect-square w-full object-cover"
-            style={{ maskImage: FADE, WebkitMaskImage: FADE }}
+            className="aspect-square w-full rounded-full object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.6)]"
           />
         </div>
       </div>
