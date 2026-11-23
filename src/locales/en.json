@@ -60,7 +60,9 @@
     "headingFor": "Projects: {{name}}",
     "showAll": "Show all",
     "count_one": "{{count}} project",
-    "count_other": "{{count}} projects"
+    "count_other": "{{count}} projects",
+    "backend": "Backend code",
+    "frontend": "Frontend code"
   },
   "skills": {
     "kicker": "Toolbox",

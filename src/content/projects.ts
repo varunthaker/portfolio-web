@@ -11,7 +11,7 @@ export type Project = {
   bullets: Localized[]
   stack: string[]
   /** Shown as buttons in the details dialog; the first one is the primary button. */
-  links?: { kind: 'demo' | 'live' | 'code'; href: string }[]
+  links?: { kind: 'demo' | 'live' | 'code' | 'backend' | 'frontend'; href: string }[]
   visual: ProjectVisualKind
   /** Which "What I build" capabilities this project demonstrates (used as filters). */
   capabilities: CapabilityId[]
@@ -146,11 +146,16 @@ export const projects: Project[] = [
         en: 'Tools exposed as an MCP server, so any MCP client can use them.',
         de: 'Tools als MCP-Server bereitgestellt — nutzbar von jedem MCP-Client.',
       },
+      {
+        en: 'React chat UI for asking questions and seeing the agent’s answers with sources.',
+        de: 'React-Chat-Oberfläche, um Fragen zu stellen und die Antworten des Agents mit Quellen zu sehen.',
+      },
     ],
-    stack: ['Python', 'FastAPI', 'LangChain', 'MCP', 'Supabase', 'pgvector'],
+    stack: ['Python', 'FastAPI', 'LangChain', 'MCP', 'React', 'Supabase', 'pgvector'],
     links: [
       { kind: 'demo', href: 'https://www.loom.com/share/f21d63f48e354b8381520db4b74bc8c7' },
-      { kind: 'code', href: 'https://github.com/varunthaker/ai-assist-inventory-mgmt' },
+      { kind: 'backend', href: 'https://github.com/varunthaker/ai-assist-inventory-mgmt' },
+      { kind: 'frontend', href: 'https://github.com/varunthaker/ai-chat-ui' },
     ],
   },
   {
