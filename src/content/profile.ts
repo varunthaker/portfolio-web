@@ -24,8 +24,8 @@ export const profile: Profile = {
     de: 'Ich verwandle Geschäftsprobleme in funktionierende, KI-gestützte Produkte.',
   },
   summary: {
-    en: 'Full-stack engineer with 3+ years in Python and React/TypeScript, plus Go — and a background in industrial engineering.',
-    de: 'Full-Stack-Engineer mit über drei Jahren Erfahrung in Python und React/TypeScript, dazu Go — mit Hintergrund im Wirtschaftsingenieurwesen.',
+    en: '3+ years with Python and React/TypeScript, plus Go. With a background in industrial engineering, I understand the process first — then ship production apps end to end, adding AI where it actually helps: agents, MCP servers, RAG.',
+    de: 'Über drei Jahre Erfahrung mit Python und React/TypeScript, dazu Go. Mit meinem Hintergrund im Wirtschaftsingenieurwesen verstehe ich zuerst den Prozess — und entwickle dann produktive Anwendungen von Ende zu Ende, mit KI dort, wo sie wirklich hilft: Agents, MCP-Server, RAG.',
   },
   stackLine: 'Python · React/TypeScript · Go · PostgreSQL · AI Agents · MCP · RAG',
   emailParts: ['vthakar3', 'gmail.com'],
