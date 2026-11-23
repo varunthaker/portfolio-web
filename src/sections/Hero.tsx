@@ -3,7 +3,8 @@ import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
 import avatar from '../assets/avatar.webp'
 
-const BOTTOM_FADE = 'linear-gradient(to bottom, #000 82%, transparent 100%)'
+/** Face and hair stay solid; shoulders and the bottom of the shirt dissolve into the page. */
+const BOTTOM_FADE = 'radial-gradient(ellipse 70% 62% at 50% 38%, #000 60%, transparent 100%)'
 
 export function Hero() {
   const { t } = useTranslation()
@@ -66,7 +67,7 @@ export function Hero() {
             height={776}
             fetchPriority="high"
             className="relative w-full"
-            // only the bottom edge of the T-shirt fades out, so the crop isn't a hard line
+            // soft oval fade so the cut-out blends into the page
             style={{ maskImage: BOTTOM_FADE, WebkitMaskImage: BOTTOM_FADE }}
           />
         </div>
