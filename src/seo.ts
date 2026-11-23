@@ -9,14 +9,14 @@ export const seo: Record<Lang, SeoEntry> = {
   en: {
     title: 'Varun Thaker — Full-Stack & AI Engineer',
     description:
-      'From industrial engineering to software: I build full-stack products with Python, React and Go, and bring AI agents, RAG and MCP into real applications.',
+      'Full-stack engineer (Python, React/TypeScript, Go) building production web apps and the AI agents inside them — MCP servers, RAG and LLM evaluation.',
     ogImage: '/og-en.png',
     locale: 'en_US',
   },
   de: {
     title: 'Varun Thaker — Full-Stack- & AI-Engineer',
     description:
-      'Vom Wirtschaftsingenieurwesen zur Software: Ich entwickle Full-Stack-Produkte mit Python, React und Go und bringe AI-Agents, RAG und MCP in echte Anwendungen.',
+      'Full-Stack-Engineer (Python, React/TypeScript, Go): produktive Webanwendungen und die AI-Agents darin — MCP-Server, RAG und LLM-Evaluation.',
     ogImage: '/og-de.png',
     locale: 'de_DE',
   },
