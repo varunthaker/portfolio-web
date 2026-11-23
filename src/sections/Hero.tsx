@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
-import photo from '../assets/photo.webp'
+import avatar from '../assets/avatar.webp'
+
+const BOTTOM_FADE = 'linear-gradient(to bottom, #000 82%, transparent 100%)'
 
 export function Hero() {
   const { t } = useTranslation()
@@ -51,15 +53,21 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="anim-rise order-1 mx-auto w-52 sm:w-64 md:order-2 md:w-full md:max-w-[340px]" style={{ animationDelay: '120ms' }}>
-          {/* Clean portrait: no ring or decoration, just a soft shadow */}
+        <div className="anim-rise relative order-1 mx-auto w-56 sm:w-72 md:order-2 md:w-full md:max-w-[380px]" style={{ animationDelay: '120ms' }}>
+          {/* soft glow behind the avatar — no frame */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-[8%] top-[12%] bottom-[8%] rounded-full bg-[radial-gradient(closest-side,var(--cyan-soft),transparent)] blur-2xl"
+          />
           <img
-            src={photo}
+            src={avatar}
             alt={t('hero.photoAlt')}
-            width={640}
-            height={640}
+            width={720}
+            height={776}
             fetchPriority="high"
-            className="aspect-square w-full rounded-full object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.6)]"
+            className="relative w-full"
+            // only the bottom edge of the T-shirt fades out, so the crop isn't a hard line
+            style={{ maskImage: BOTTOM_FADE, WebkitMaskImage: BOTTOM_FADE }}
           />
         </div>
       </div>
