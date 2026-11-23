@@ -20,8 +20,8 @@ export const journey: Chapter[] = [
     title: { en: 'Mechanical Engineering', de: 'Maschinenbau' },
     place: { en: 'B.Tech · University of Mumbai, India', de: 'B.Tech · University of Mumbai, Indien' },
     body: {
-      en: 'It started with engineering: understanding how systems fit together — and how every step affects the next.',
-      de: 'Alles begann mit Ingenieurwesen: verstehen, wie Systeme zusammenspielen — und wie jeder Schritt den nächsten beeinflusst.',
+      en: 'Engineering degree in Mumbai — learning to think in systems.',
+      de: 'Ingenieurstudium in Mumbai — Denken in Systemen gelernt.',
     },
   },
   {
@@ -31,8 +31,8 @@ export const journey: Chapter[] = [
     title: { en: 'Industrial Engineering', de: 'Wirtschaftsingenieurwesen' },
     place: { en: 'Technische Universität Berlin', de: 'Technische Universität Berlin' },
     body: {
-      en: 'From single steps to whole processes: supply chain, lean, quality and project management — and the business side of every decision.',
-      de: 'Von einzelnen Arbeitsschritten zu ganzen Prozessen: Supply Chain, Lean, Qualitäts- und Projektmanagement — und die betriebswirtschaftliche Seite jeder Entscheidung.',
+      en: 'Supply chain, lean and business processes at TU Berlin.',
+      de: 'Supply Chain, Lean und Geschäftsprozesse an der TU Berlin.',
     },
   },
   {
@@ -45,22 +45,8 @@ export const journey: Chapter[] = [
       de: 'Werkstudent · Energietechnik-Unternehmen',
     },
     body: {
-      en: 'I built an Excel tool for demand-driven material management and KPI tracking. The process became rows, columns and KPIs.',
-      de: 'Ich entwickelte ein Excel-Tool für Demand-Driven-Materialmanagement und KPI-Tracking. Aus dem Prozess wurden Zeilen, Spalten und KPIs.',
-    },
-  },
-  {
-    id: 'reporting',
-    period: '2022 – 2023',
-    scene: 'vba',
-    title: { en: 'The first lines of code', de: 'Die ersten Zeilen Code' },
-    place: {
-      en: 'Working student · Facility-services company',
-      de: 'Werkstudent · Facility-Services-Unternehmen',
-    },
-    body: {
-      en: 'Automating facility-management reports with VBA macros. Watching a manual process run by itself was the moment I knew: I want to build software.',
-      de: 'Automatisierung von Facility-Management-Reports mit VBA-Makros. Einen manuellen Prozess von selbst laufen zu sehen — da wusste ich: Ich will Software bauen.',
+      en: 'Built Excel tools for material management and KPI tracking.',
+      de: 'Excel-Tools für Materialmanagement und KPI-Tracking gebaut.',
     },
   },
   {
@@ -73,8 +59,8 @@ export const journey: Chapter[] = [
       de: 'Selbststudium · Spiced Academy Berlin (Fullstack Web Development)',
     },
     body: {
-      en: 'Evenings with JavaScript, React, design patterns and Git, then an intensive full-stack bootcamp. The process diagram comes alive — boxes become services, arrows become APIs.',
-      de: 'Abende mit JavaScript, React, Design Patterns und Git, danach ein intensives Fullstack-Bootcamp. Das Prozessdiagramm wird lebendig — Kästen werden zu Services, Pfeile zu APIs.',
+      en: 'Self-study and a full-stack bootcamp — from spreadsheets to real apps.',
+      de: 'Selbststudium und Fullstack-Bootcamp — von Tabellen zu echten Apps.',
     },
   },
   {
@@ -84,8 +70,8 @@ export const journey: Chapter[] = [
     title: { en: 'Full-Stack Engineer', de: 'Fullstack Engineer' },
     place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
-      en: 'Building core business-process domains in Go with Domain-Driven Design, and helping migrate the platform from Django/MySQL to Go/PostgreSQL — faster responses, better concurrency under load.',
-      de: 'Entwicklung zentraler Business-Process-Domains in Go nach Domain-Driven Design und Mitwirkung an der Migration von Django/MySQL zu Go/PostgreSQL — kürzere Antwortzeiten, bessere Concurrency unter Last.',
+      en: 'Python, React and Go on a B2B business-process platform.',
+      de: 'Python, React und Go auf einer B2B-Plattform für Geschäftsprozesse.',
     },
   },
   {
@@ -95,8 +81,8 @@ export const journey: Chapter[] = [
     title: { en: 'AI agents & MCP', de: 'AI-Agents & MCP' },
     place: { en: 'B2B SaaS · business-process platform', de: 'B2B-SaaS · Plattform für Geschäftsprozesse' },
     body: {
-      en: 'Owning the platform’s AI services: agents that analyse business processes, MCP servers and tool calling, a PDF-to-process extraction pipeline, multi-provider model selection and an LLM evaluation setup.',
-      de: 'Verantwortung für die AI-Services der Plattform: Agents, die Geschäftsprozesse analysieren, MCP-Server und Tool Calling, eine PDF-to-Process-Extraction-Pipeline, Multi-Provider-Model-Selection und ein LLM-Evaluation-Setup.',
+      en: 'AI agents, MCP servers and LLM evaluation in production.',
+      de: 'AI-Agents, MCP-Server und LLM-Evaluation im produktiven Einsatz.',
     },
   },
 ]
@@ -106,5 +92,5 @@ export const journeyOutro: Localized = {
   de: 'Gleiche Denkweise: Prozesse → Systeme. Neue Werkzeuge.',
 }
 
-/** Chapters 1–4 are the "process" era (amber), 5–7 the "software" era (cyan). */
-export const isSoftwareEra = (index: number) => index >= 4
+/** Chapters 1–3 are the "process" era (amber), 4–6 the "software" era (cyan). */
+export const isSoftwareEra = (index: number) => index >= 3

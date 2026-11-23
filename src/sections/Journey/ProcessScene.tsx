@@ -44,10 +44,9 @@ const EXTRA_AGENTS = [
 
 /** Code typed into the editor panel, one snippet per chapter (by chapter index). */
 const SNIPPETS: { chapter: number; file: string; lines: string[] }[] = [
-  { chapter: 3, file: 'report.bas', lines: ['Sub BuildReport()', '  For Each row In Data', '    Report.Add row', 'End Sub'] },
-  { chapter: 4, file: 'Flow.tsx', lines: ['function Flow({ steps }) {', '  return steps.map((s) =>', '    <Step key={s.id} {...s} />)', '}'] },
-  { chapter: 5, file: 'process.go', lines: ['type Process struct{ Steps []Step }', '', 'func (p *Process) Run() error {', '  return p.repo.Save(p)'] },
-  { chapter: 6, file: 'agent.py', lines: ['agent = Agent(tools=mcp.tools())', 'agent.run("analyse process")', '', '# → 3 improvements found'] },
+  { chapter: 3, file: 'Flow.tsx', lines: ['function Flow({ steps }) {', '  return steps.map((s) =>', '    <Step key={s.id} {...s} />)', '}'] },
+  { chapter: 4, file: 'process.go', lines: ['type Process struct{ Steps []Step }', '', 'func (p *Process) Run() error {', '  return p.repo.Save(p)'] },
+  { chapter: 5, file: 'agent.py', lines: ['agent = Agent(tools=mcp.tools())', 'agent.run("analyse process")', '', '# → 3 improvements found'] },
 ]
 const PANEL = { x: 30, y: 466, w: 380, h: 112 }
 
@@ -131,11 +130,11 @@ function MorphNode({ progress, index }: { progress: MotionValue<number>; index: 
   const g = STEPS[index]
   const s = SERVICE_POS[index]
   const a = AGENT_POS[index]
-  const keys = [4.3, 5, 5.35, 6]
+  const keys = [3.3, 4, 4.35, 5]
   const x = useChapters(progress, keys, [0, s.x - g.x, s.x - g.x, a.x - g.x])
   const y = useChapters(progress, keys, [0, s.y - g.y, s.y - g.y, a.y - g.y])
-  const scale = useChapters(progress, [3.7, 4.3, 4.8, 5.1, 5.5, 6], [0.2, 0.7, 0.7, 1.1, 1.1, 0.8])
-  const opacity = useWindow(progress, [3.7, 4.2])
+  const scale = useChapters(progress, [2.7, 3.3, 3.8, 4.1, 4.5, 5], [0.2, 0.7, 0.7, 1.1, 1.1, 0.8])
+  const opacity = useWindow(progress, [2.7, 3.2])
   return (
     <g transform={`translate(${g.x} ${g.y})`}>
       <motion.g style={{ x, y, scale, opacity }}>
@@ -147,8 +146,8 @@ function MorphNode({ progress, index }: { progress: MotionValue<number>; index: 
 }
 
 function Particles({ progress }: { progress: MotionValue<number> }) {
-  const spread = useChapters(progress, [3.5, 4.6], [0, 1])
-  const opacity = useWindow(progress, [3.5, 3.9], [4.2, 4.7])
+  const spread = useChapters(progress, [2.5, 3.6], [0, 1])
+  const opacity = useWindow(progress, [2.5, 2.9], [3.2, 3.7])
   const dots = Array.from({ length: 18 }, (_, i) => {
     const step = STEPS[i % 3]
     const angle = (i * 137.5 * Math.PI) / 180
@@ -212,29 +211,29 @@ export function ProcessScene({ progress, animate = true, className = '' }: Scene
   const arrow = `url(#${uid}-arrow)`
 
   // Ambient glow shifts from amber (process era) to cyan (software era).
-  const amberGlow = useWindow(progress, undefined, [3.4, 4.6])
-  const cyanGlow = useWindow(progress, [3.6, 4.8])
+  const amberGlow = useWindow(progress, undefined, [2.4, 3.6])
+  const cyanGlow = useWindow(progress, [2.6, 3.8])
 
   // Chapters 1–4: the process diagram
-  const flow = useWindow(progress, undefined, [3.6, 4.3])
+  const flow = useWindow(progress, undefined, [2.6, 3.3])
   const loop = useChapters(progress, [0.45, 1.05], [0, 1])
   const loopLabel = useWindow(progress, [0.8, 1.05])
   const loopArrow = useWindow(progress, [0.45, 0.55]) // hides the arrowhead before the line draws
   // Early chapters show only the diagram, so centre it; it rises when the spreadsheet arrives.
   const lift = useChapters(progress, [1.2, 1.8], [110, 0])
-  const kpis = useWindow(progress, [0.75, 1.1], [3.6, 4.2])
-  const tokens = useWindow(progress, [0.6, 1], [3.4, 3.9])
+  const kpis = useWindow(progress, [0.75, 1.1], [2.6, 3.2])
+  const tokens = useWindow(progress, [0.6, 1], [2.4, 2.9])
   // Chapter 3: spreadsheet
-  const cells = useWindow(progress, [1.55, 2.05], [3.6, 4.2])
+  const cells = useWindow(progress, [1.55, 2.05], [2.6, 3.2])
   const values = useWindow(progress, [1.9, 2.3])
   // Chapters 4–7: the editor panel that types code
   const panel = useWindow(progress, [2.4, 2.6])
   // Chapters 6–7: services, then MCP hub with agents
-  const pipeline = useWindow(progress, [4.2, 4.8], [5.4, 5.8])
-  const serviceLabels = useWindow(progress, [4.8, 5], [5.3, 5.5])
-  const hub = useWindow(progress, [5.4, 5.9])
-  const hubScale = useChapters(progress, [5.4, 6], [0.4, 1])
-  const extraAgents = useWindow(progress, [5.6, 6])
+  const pipeline = useWindow(progress, [3.2, 3.8], [4.4, 4.8])
+  const serviceLabels = useWindow(progress, [3.8, 4], [4.3, 4.5])
+  const hub = useWindow(progress, [4.4, 4.9])
+  const hubScale = useChapters(progress, [4.4, 5], [0.4, 1])
+  const extraAgents = useWindow(progress, [4.6, 5])
 
   const mainPath = 'M70 170H530'
 
