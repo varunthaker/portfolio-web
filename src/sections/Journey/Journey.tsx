@@ -31,7 +31,7 @@ function JourneyScroll() {
   return (
     <div ref={ref} className="relative mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-2 md:gap-12">
       {/* phones: heading above the scene, so there is no big gap after the hero */}
-      <div className="pt-24 pb-6 md:hidden">
+      <div className="pt-4 pb-6 md:hidden">
         <JourneyHeader id="journey-heading" />
       </div>
       {/* `contents` on mobile lets the sticky scene stick within the whole tall container */}
