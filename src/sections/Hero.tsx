@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useLang } from '../hooks/useLang'
 import { profile } from '../content/profile'
-import photo from '../assets/profile.webp'
+import photo from '../assets/avatar.webp'
 
 /** Decorative orbit: a process diagram on one side turning into connected nodes on the other. */
 function HeroOrbit() {
@@ -83,14 +83,14 @@ export function Hero() {
           <div className="relative aspect-square">
             <HeroOrbit />
             <div className="absolute inset-[14%] rounded-full bg-gradient-to-br from-amber to-cyan p-[3px] shadow-[0_0_80px_-20px_var(--cyan)]">
-              <div className="size-full overflow-hidden rounded-full bg-card">
+              <div className="size-full overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_35%,#9b85ec,#6a4fcf_70%)]">
                 <img
                   src={photo}
                   alt={t('hero.photoAlt')}
-                  width={512}
-                  height={512}
+                  width={640}
+                  height={640}
                   fetchPriority="high"
-                  className="size-full scale-[1.04] object-cover"
+                  className="size-full object-cover object-top"
                 />
               </div>
             </div>

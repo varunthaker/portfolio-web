@@ -32,7 +32,7 @@ Every content string is `{ en, de }`, so a missing translation is a type error. 
 
 ## Swap the photo
 
-Replace `src/assets/profile.webp` with a square image (512×512 or larger) and keep the file name. If you change the format, update the import in `src/sections/Hero.tsx`.
+Replace `src/assets/avatar.webp` with a square image (640×640 or larger, transparent background works — the circle has a violet backdrop) and keep the file name. If you change the format, update the import in `src/sections/Hero.tsx`.
 
 ## Copy guard
 
