@@ -214,3 +214,20 @@ h3 {
 .anim-step {
   animation: step-hl 8s linear infinite;
 }
+
+/* Journey character: gentle idle bob */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.anim-bob {
+  animation: bob 3.2s ease-in-out infinite;
+}
+.anim-bob-alt {
+  animation: bob 2.2s ease-in-out infinite reverse;
+}
