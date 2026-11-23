@@ -57,16 +57,19 @@ export function ProjectDialog({ project, onClose }: Props) {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              {project.link && (
+              {project.links?.map((link, i) => (
                 <a
-                  href={project.link.href}
+                  key={link.href}
+                  href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl bg-fg px-5 py-2.5 text-sm font-semibold text-bg"
+                  className={`rounded-xl px-5 py-2.5 text-sm font-semibold ${
+                    i === 0 ? 'bg-fg text-bg' : 'border border-border hover:border-cyan'
+                  }`}
                 >
-                  {t(`projects.${project.link.kind}`)} ↗
+                  {t(`projects.${link.kind}`)} ↗
                 </a>
-              )}
+              ))}
               <button
                 type="button"
                 onClick={onClose}

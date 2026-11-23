@@ -10,7 +10,8 @@ export type Project = {
   summary: Localized
   bullets: Localized[]
   stack: string[]
-  link?: { kind: 'demo' | 'live' | 'code'; href: string }
+  /** Shown as buttons in the details dialog; the first one is the primary button. */
+  links?: { kind: 'demo' | 'live' | 'code'; href: string }[]
   visual: ProjectVisualKind
   /** Which "What I build" capabilities this project demonstrates (used as filters). */
   capabilities: CapabilityId[]
@@ -68,6 +69,7 @@ export const projects: Project[] = [
       },
     ],
     stack: ['React', 'TypeScript', 'MUI', 'Supabase', 'PostgreSQL RLS', 'Vercel'],
+    links: [{ kind: 'code', href: 'https://github.com/varunthaker/business-tool' }],
   },
   {
     id: 'dashboard-rebuild',
@@ -146,7 +148,10 @@ export const projects: Project[] = [
       },
     ],
     stack: ['Python', 'FastAPI', 'LangChain', 'MCP', 'Supabase', 'pgvector'],
-    link: { kind: 'demo', href: 'https://www.loom.com/share/f21d63f48e354b8381520db4b74bc8c7' },
+    links: [
+      { kind: 'demo', href: 'https://www.loom.com/share/f21d63f48e354b8381520db4b74bc8c7' },
+      { kind: 'code', href: 'https://github.com/varunthaker/ai-assist-inventory-mgmt' },
+    ],
   },
   {
     id: 'voice-agent',
